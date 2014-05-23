@@ -16,13 +16,14 @@
 		18A7621B192F0F9E005DBA11 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A76219192F0F9E005DBA11 /* Main_iPhone.storyboard */; };
 		18A7621E192F0F9E005DBA11 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A7621C192F0F9E005DBA11 /* Main_iPad.storyboard */; };
 		18A76221192F0F9E005DBA11 /* MySamplesMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A76220192F0F9E005DBA11 /* MySamplesMasterViewController.m */; };
-		18A76224192F0F9E005DBA11 /* MySamplesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A76223192F0F9E005DBA11 /* MySamplesDetailViewController.m */; };
 		18A76226192F0F9E005DBA11 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18A76225192F0F9E005DBA11 /* Images.xcassets */; };
 		18A7622D192F0F9E005DBA11 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A7622C192F0F9E005DBA11 /* XCTest.framework */; };
 		18A7622E192F0F9E005DBA11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A76207192F0F9E005DBA11 /* Foundation.framework */; };
 		18A7622F192F0F9E005DBA11 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A7620B192F0F9E005DBA11 /* UIKit.framework */; };
 		18A76237192F0F9E005DBA11 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18A76235192F0F9E005DBA11 /* InfoPlist.strings */; };
 		18A76239192F0F9E005DBA11 /* MySamplesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A76238192F0F9E005DBA11 /* MySamplesTests.m */; };
+		18A7624B192F15F8005DBA11 /* ImageScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A7624A192F15F8005DBA11 /* ImageScrollViewController.m */; };
+		18A7624E192F17B4005DBA11 /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A7624D192F17B4005DBA11 /* ImageScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,14 +51,16 @@
 		18A7621D192F0F9E005DBA11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		18A7621F192F0F9E005DBA11 /* MySamplesMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySamplesMasterViewController.h; sourceTree = "<group>"; };
 		18A76220192F0F9E005DBA11 /* MySamplesMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySamplesMasterViewController.m; sourceTree = "<group>"; };
-		18A76222192F0F9E005DBA11 /* MySamplesDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySamplesDetailViewController.h; sourceTree = "<group>"; };
-		18A76223192F0F9E005DBA11 /* MySamplesDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySamplesDetailViewController.m; sourceTree = "<group>"; };
 		18A76225192F0F9E005DBA11 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		18A7622B192F0F9E005DBA11 /* MySamplesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySamplesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A7622C192F0F9E005DBA11 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		18A76234192F0F9E005DBA11 /* MySamplesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MySamplesTests-Info.plist"; sourceTree = "<group>"; };
 		18A76236192F0F9E005DBA11 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		18A76238192F0F9E005DBA11 /* MySamplesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySamplesTests.m; sourceTree = "<group>"; };
+		18A76249192F15F8005DBA11 /* ImageScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollViewController.h; sourceTree = "<group>"; };
+		18A7624A192F15F8005DBA11 /* ImageScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollViewController.m; sourceTree = "<group>"; };
+		18A7624C192F17B4005DBA11 /* ImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollView.h; sourceTree = "<group>"; };
+		18A7624D192F17B4005DBA11 /* ImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +126,7 @@
 				18A7621C192F0F9E005DBA11 /* Main_iPad.storyboard */,
 				18A7621F192F0F9E005DBA11 /* MySamplesMasterViewController.h */,
 				18A76220192F0F9E005DBA11 /* MySamplesMasterViewController.m */,
-				18A76222192F0F9E005DBA11 /* MySamplesDetailViewController.h */,
-				18A76223192F0F9E005DBA11 /* MySamplesDetailViewController.m */,
+				18A76242192F1129005DBA11 /* Samples */,
 				18A76225192F0F9E005DBA11 /* Images.xcassets */,
 				18A7620E192F0F9E005DBA11 /* Supporting Files */,
 			);
@@ -158,6 +160,26 @@
 				18A76235192F0F9E005DBA11 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18A76242192F1129005DBA11 /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+				18A76248192F15F8005DBA11 /* ImageScroll */,
+			);
+			name = Samples;
+			sourceTree = "<group>";
+		};
+		18A76248192F15F8005DBA11 /* ImageScroll */ = {
+			isa = PBXGroup;
+			children = (
+				18A76249192F15F8005DBA11 /* ImageScrollViewController.h */,
+				18A7624A192F15F8005DBA11 /* ImageScrollViewController.m */,
+				18A7624C192F17B4005DBA11 /* ImageScrollView.h */,
+				18A7624D192F17B4005DBA11 /* ImageScrollView.m */,
+			);
+			name = ImageScroll;
+			path = Samples/ImageScroll;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,7 +284,8 @@
 				18A76218192F0F9E005DBA11 /* MySamplesAppDelegate.m in Sources */,
 				18A76221192F0F9E005DBA11 /* MySamplesMasterViewController.m in Sources */,
 				18A76214192F0F9E005DBA11 /* main.m in Sources */,
-				18A76224192F0F9E005DBA11 /* MySamplesDetailViewController.m in Sources */,
+				18A7624B192F15F8005DBA11 /* ImageScrollViewController.m in Sources */,
+				18A7624E192F17B4005DBA11 /* ImageScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
