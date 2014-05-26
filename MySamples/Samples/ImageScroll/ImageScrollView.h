@@ -13,4 +13,13 @@
 
 //- (id)initWithFrame:(CGRect)frame contentSize:(CGRect)contentSize;
 
+
+
+/// 自動スクロールの有効/無効
+@property(nonatomic, setter = setAutoScrollEnable:) BOOL isAutoScrollEnable;
+/// 自動スクロールをする規定時間
+@property(nonatomic) float autoScrollTimeCount;
+/// 自動スクロール時のスクロール時間
+@property(nonatomic) float autoScrollDuration;
+
 @end

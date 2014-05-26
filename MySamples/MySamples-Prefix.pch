@@ -14,3 +14,45 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+
+// デバッグログ
+#ifdef DEBUG
+
+#ifndef NSLog
+#define NSLog( m, args... ) NSLog( m, ##args )
+#endif
+
+#else
+
+#ifndef NSLog
+#define NSLog( m, args... )
+#endif
+
+#endif
+
+
+
+// AppDelegate
+#define APP_DELEGATE ((AppDelegate*)[[UIApplication sharedApplication] delegate])
+
+// UserDefault
+#define USER_DEFAULT [NSUserDefaults standardUserDefaults]
+
+// 画面サイズ
+#define SCREEN_BOUNDS   ([UIScreen mainScreen].bounds)
+
+// バーの高さ
+#define STATUSBAR_H 20
+#define TABBAR_H    48
+#define NAVBAR_H    44
+#define TOOLBAR_H   44
+
+// UIColor
+#define RGB(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+#define RGBA(r, g, b, a)    [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
+
+
+
+

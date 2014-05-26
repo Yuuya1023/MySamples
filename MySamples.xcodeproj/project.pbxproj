@@ -24,6 +24,7 @@
 		18A76239192F0F9E005DBA11 /* MySamplesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A76238192F0F9E005DBA11 /* MySamplesTests.m */; };
 		18A7624B192F15F8005DBA11 /* ImageScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A7624A192F15F8005DBA11 /* ImageScrollViewController.m */; };
 		18A7624E192F17B4005DBA11 /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A7624D192F17B4005DBA11 /* ImageScrollView.m */; };
+		18A76254192F4D63005DBA11 /* UIScrollView+TouchEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A76253192F4D63005DBA11 /* UIScrollView+TouchEvent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		18A7624A192F15F8005DBA11 /* ImageScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollViewController.m; sourceTree = "<group>"; };
 		18A7624C192F17B4005DBA11 /* ImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollView.h; sourceTree = "<group>"; };
 		18A7624D192F17B4005DBA11 /* ImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollView.m; sourceTree = "<group>"; };
+		18A76252192F4D63005DBA11 /* UIScrollView+TouchEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TouchEvent.h"; sourceTree = "<group>"; };
+		18A76253192F4D63005DBA11 /* UIScrollView+TouchEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TouchEvent.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +180,8 @@
 				18A7624A192F15F8005DBA11 /* ImageScrollViewController.m */,
 				18A7624C192F17B4005DBA11 /* ImageScrollView.h */,
 				18A7624D192F17B4005DBA11 /* ImageScrollView.m */,
+				18A76252192F4D63005DBA11 /* UIScrollView+TouchEvent.h */,
+				18A76253192F4D63005DBA11 /* UIScrollView+TouchEvent.m */,
 			);
 			name = ImageScroll;
 			path = Samples/ImageScroll;
@@ -281,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A76254192F4D63005DBA11 /* UIScrollView+TouchEvent.m in Sources */,
 				18A76218192F0F9E005DBA11 /* MySamplesAppDelegate.m in Sources */,
 				18A76221192F0F9E005DBA11 /* MySamplesMasterViewController.m in Sources */,
 				18A76214192F0F9E005DBA11 /* main.m in Sources */,
