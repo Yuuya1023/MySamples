@@ -9,7 +9,7 @@
 #import "MySamplesMasterViewController.h"
 
 #import "ImageScrollViewController.h"
-
+#import "TickerViewController.h"
 
 
 
@@ -36,7 +36,10 @@
     self.detailViewController = (MySamplesDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
     // リスト作成
-    _objects = [[NSMutableArray alloc] initWithObjects:[[ImageScrollViewController alloc] init], nil];
+    _objects = [[NSMutableArray alloc] initWithObjects:
+                [[ImageScrollViewController alloc] init],
+                [[TickerViewController alloc] init],
+                nil];
 }
 
 - (void)didReceiveMemoryWarning

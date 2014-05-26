@@ -12,6 +12,9 @@
 		18A597BB19330C990068662E /* banner3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18A597B619330C990068662E /* banner3.jpg */; };
 		18A597BC19330C990068662E /* banner4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18A597B719330C990068662E /* banner4.jpg */; };
 		18A597BD19330C990068662E /* banner5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18A597B819330C990068662E /* banner5.jpg */; };
+		18A597C2193326C50068662E /* UIScrollView+TouchEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A597C0193326C50068662E /* UIScrollView+TouchEvent.m */; };
+		18A597C5193327230068662E /* TickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A597C4193327230068662E /* TickerViewController.m */; };
+		18A597C81933279F0068662E /* TickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A597C71933279F0068662E /* TickerView.m */; };
 		18A76208192F0F9E005DBA11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A76207192F0F9E005DBA11 /* Foundation.framework */; };
 		18A7620A192F0F9E005DBA11 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A76209192F0F9E005DBA11 /* CoreGraphics.framework */; };
 		18A7620C192F0F9E005DBA11 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A7620B192F0F9E005DBA11 /* UIKit.framework */; };
@@ -29,7 +32,6 @@
 		18A76239192F0F9E005DBA11 /* MySamplesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A76238192F0F9E005DBA11 /* MySamplesTests.m */; };
 		18A7624B192F15F8005DBA11 /* ImageScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A7624A192F15F8005DBA11 /* ImageScrollViewController.m */; };
 		18A7624E192F17B4005DBA11 /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A7624D192F17B4005DBA11 /* ImageScrollView.m */; };
-		18A76254192F4D63005DBA11 /* UIScrollView+TouchEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A76253192F4D63005DBA11 /* UIScrollView+TouchEvent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,12 @@
 		18A597B619330C990068662E /* banner3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner3.jpg; sourceTree = "<group>"; };
 		18A597B719330C990068662E /* banner4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner4.jpg; sourceTree = "<group>"; };
 		18A597B819330C990068662E /* banner5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner5.jpg; sourceTree = "<group>"; };
+		18A597BF193326C50068662E /* UIScrollView+TouchEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TouchEvent.h"; sourceTree = "<group>"; };
+		18A597C0193326C50068662E /* UIScrollView+TouchEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TouchEvent.m"; sourceTree = "<group>"; };
+		18A597C3193327230068662E /* TickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TickerViewController.h; sourceTree = "<group>"; };
+		18A597C4193327230068662E /* TickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TickerViewController.m; sourceTree = "<group>"; };
+		18A597C61933279F0068662E /* TickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TickerView.h; sourceTree = "<group>"; };
+		18A597C71933279F0068662E /* TickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TickerView.m; sourceTree = "<group>"; };
 		18A76204192F0F9E005DBA11 /* MySamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A76207192F0F9E005DBA11 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		18A76209192F0F9E005DBA11 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,8 +80,6 @@
 		18A7624A192F15F8005DBA11 /* ImageScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollViewController.m; sourceTree = "<group>"; };
 		18A7624C192F17B4005DBA11 /* ImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollView.h; sourceTree = "<group>"; };
 		18A7624D192F17B4005DBA11 /* ImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollView.m; sourceTree = "<group>"; };
-		18A76252192F4D63005DBA11 /* UIScrollView+TouchEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TouchEvent.h"; sourceTree = "<group>"; };
-		18A76253192F4D63005DBA11 /* UIScrollView+TouchEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TouchEvent.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,28 @@
 				18A597B819330C990068662E /* banner5.jpg */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		18A597BE193326C50068662E /* common */ = {
+			isa = PBXGroup;
+			children = (
+				18A597BF193326C50068662E /* UIScrollView+TouchEvent.h */,
+				18A597C0193326C50068662E /* UIScrollView+TouchEvent.m */,
+			);
+			name = common;
+			path = Samples/common;
+			sourceTree = "<group>";
+		};
+		18A597C1193326C50068662E /* TickerView */ = {
+			isa = PBXGroup;
+			children = (
+				18A597C3193327230068662E /* TickerViewController.h */,
+				18A597C4193327230068662E /* TickerViewController.m */,
+				18A597C61933279F0068662E /* TickerView.h */,
+				18A597C71933279F0068662E /* TickerView.m */,
+			);
+			name = TickerView;
+			path = Samples/TickerView;
 			sourceTree = "<group>";
 		};
 		18A761FB192F0F9E005DBA11 = {
@@ -190,8 +218,10 @@
 		18A76242192F1129005DBA11 /* Samples */ = {
 			isa = PBXGroup;
 			children = (
-				18A597B319330C990068662E /* Images */,
+				18A597BE193326C50068662E /* common */,
+				18A597C1193326C50068662E /* TickerView */,
 				18A76248192F15F8005DBA11 /* ImageScroll */,
+				18A597B319330C990068662E /* Images */,
 			);
 			name = Samples;
 			sourceTree = "<group>";
@@ -203,8 +233,6 @@
 				18A7624A192F15F8005DBA11 /* ImageScrollViewController.m */,
 				18A7624C192F17B4005DBA11 /* ImageScrollView.h */,
 				18A7624D192F17B4005DBA11 /* ImageScrollView.m */,
-				18A76252192F4D63005DBA11 /* UIScrollView+TouchEvent.h */,
-				18A76253192F4D63005DBA11 /* UIScrollView+TouchEvent.m */,
 			);
 			name = ImageScroll;
 			path = Samples/ImageScroll;
@@ -314,10 +342,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18A76254192F4D63005DBA11 /* UIScrollView+TouchEvent.m in Sources */,
 				18A76218192F0F9E005DBA11 /* MySamplesAppDelegate.m in Sources */,
 				18A76221192F0F9E005DBA11 /* MySamplesMasterViewController.m in Sources */,
+				18A597C2193326C50068662E /* UIScrollView+TouchEvent.m in Sources */,
 				18A76214192F0F9E005DBA11 /* main.m in Sources */,
+				18A597C81933279F0068662E /* TickerView.m in Sources */,
+				18A597C5193327230068662E /* TickerViewController.m in Sources */,
 				18A7624B192F15F8005DBA11 /* ImageScrollViewController.m in Sources */,
 				18A7624E192F17B4005DBA11 /* ImageScrollView.m in Sources */,
 			);
