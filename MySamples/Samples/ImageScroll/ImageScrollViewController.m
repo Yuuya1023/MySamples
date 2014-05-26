@@ -24,7 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.view setBackgroundColor:[UIColor grayColor]];
     
     
     // 画像ファイル名を渡す
@@ -37,7 +37,7 @@
                         @"banner5.jpg",
                         nil];
         
-        ImageScrollView *imageScroll = [[ImageScrollView alloc] initWithFrame:CGRectMake(0, 100, 320, 100)
+        ImageScrollView *imageScroll = [[ImageScrollView alloc] initWithFrame:CGRectMake(0, 100, 320, 120)
                                                                    imageFiles:arr];
         [self.view addSubview:imageScroll];
     }
@@ -48,7 +48,8 @@
         NSMutableArray *arr = [[NSMutableArray alloc] init];
         {
             for (int i = 0; i < 4; i++) {
-                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
+                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 105)];
+                [view setBackgroundColor:[UIColor blackColor]];
                 UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 300, 20)];
                 label.text = [NSString stringWithFormat:@"%dページ",i + 1];
                 label.backgroundColor = [UIColor blueColor];
@@ -58,9 +59,8 @@
             }
         }
 
-        ImageScrollView *imageScroll = [[ImageScrollView alloc] initWithFrame:CGRectMake(0, 250, 320, 100)
+        ImageScrollView *imageScroll = [[ImageScrollView alloc] initWithFrame:CGRectMake(0, 250, 320, 120)
                                                                         views:arr];
-        [imageScroll setBackgroundColor:[UIColor blackColor]];
         [imageScroll setAutoScrollTimeCount:1];
         [imageScroll setAutoScrollDuration:1.0f];
 //        [imageScroll setPageTouchEnable:NO];

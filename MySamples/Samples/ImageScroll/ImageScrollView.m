@@ -9,9 +9,12 @@
 #import "ImageScrollView.h"
 #import "UIScrollView+TouchEvent.h"
 
+#define PAGE_CONTROL_HEIGHT 15.0f
+
 @interface ImageScrollView () {
     
     UIScrollView *scrollView_;
+    UIPageControl *pageControl_;
     
     /// 総ページ数
     NSUInteger pageCount_;
@@ -102,11 +105,13 @@
             UIImage *image = [UIImage imageNamed:[imageFiles objectAtIndex:i]];
 
             UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-            imageView.frame = CGRectMake(i * pageSize_, 0, pageSize_, frame.size.height);
+            imageView.frame = CGRectMake(i * pageSize_, 0, pageSize_, frame.size.height - PAGE_CONTROL_HEIGHT);
             
             [pageContainerArray_ addObject:imageView];
             [scrollView_ addSubview:imageView];
         }
+        
+        [self createPageControll];
         
         if (isAutoScrollEnable_ && !pageCount_ != 1) {
             [self initTimer];
@@ -127,13 +132,14 @@
         scrollView_.contentSize = CGSizeMake(frame.size.width * pageCount_, frame.size.height);
         
         for (int i = 0; i < pageCount_; i++) {
-            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i * pageSize_, 0, pageSize_, frame.size.height)];
+            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i * pageSize_, 0, pageSize_, frame.size.height - PAGE_CONTROL_HEIGHT)];
             [view addSubview:[views objectAtIndex:i]];
             
             [pageContainerArray_ addObject:view];
             [scrollView_ addSubview:view];
         }
-
+        
+        [self createPageControll];
         
         if (isAutoScrollEnable_ && !pageCount_ != 1) {
             [self initTimer];
@@ -161,11 +167,21 @@
     
 }
 
-//- (void)setPageTouchEnable:(BOOL)b
-//{
-//    
-//    
-//}
+#pragma mark - 
+
+- (void)createPageControll
+{
+    
+    if (!pageControl_) {
+        pageControl_ = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height - PAGE_CONTROL_HEIGHT, pageSize_, PAGE_CONTROL_HEIGHT)];
+        [self addSubview:pageControl_];
+    }
+    
+    pageControl_.numberOfPages = pageCount_;
+    
+}
+
+
 
 
 #pragma mark - Timer
@@ -198,6 +214,7 @@
             moveToX = 0.0f;
             currentPage_ = 1;
         }
+        [pageControl_ setCurrentPage:currentPage_ - 1];
         
 //        NSLog(@"currentPage -> %d",currentPage_);
         
@@ -244,8 +261,8 @@
 {
 //    NSLog(@"scrollViewDidEndDecelerating");
     currentPage_ = (NSUInteger)(scrollView.contentOffset.x / scrollView.bounds.size.width) + 1;
+    [pageControl_ setCurrentPage:currentPage_ - 1];
 //    NSLog(@"currentPage -> %d",currentPage_);
-    
 }
 
 
