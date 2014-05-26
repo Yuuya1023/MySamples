@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18A597B919330C990068662E /* banner1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18A597B419330C990068662E /* banner1.jpg */; };
+		18A597BA19330C990068662E /* banner2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18A597B519330C990068662E /* banner2.jpg */; };
+		18A597BB19330C990068662E /* banner3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18A597B619330C990068662E /* banner3.jpg */; };
+		18A597BC19330C990068662E /* banner4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18A597B719330C990068662E /* banner4.jpg */; };
+		18A597BD19330C990068662E /* banner5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18A597B819330C990068662E /* banner5.jpg */; };
 		18A76208192F0F9E005DBA11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A76207192F0F9E005DBA11 /* Foundation.framework */; };
 		18A7620A192F0F9E005DBA11 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A76209192F0F9E005DBA11 /* CoreGraphics.framework */; };
 		18A7620C192F0F9E005DBA11 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A7620B192F0F9E005DBA11 /* UIKit.framework */; };
@@ -38,6 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18A597B419330C990068662E /* banner1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner1.jpg; sourceTree = "<group>"; };
+		18A597B519330C990068662E /* banner2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner2.jpg; sourceTree = "<group>"; };
+		18A597B619330C990068662E /* banner3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner3.jpg; sourceTree = "<group>"; };
+		18A597B719330C990068662E /* banner4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner4.jpg; sourceTree = "<group>"; };
+		18A597B819330C990068662E /* banner5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner5.jpg; sourceTree = "<group>"; };
 		18A76204192F0F9E005DBA11 /* MySamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A76207192F0F9E005DBA11 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		18A76209192F0F9E005DBA11 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -90,6 +100,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18A597B319330C990068662E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				18A597B419330C990068662E /* banner1.jpg */,
+				18A597B519330C990068662E /* banner2.jpg */,
+				18A597B619330C990068662E /* banner3.jpg */,
+				18A597B719330C990068662E /* banner4.jpg */,
+				18A597B819330C990068662E /* banner5.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		18A761FB192F0F9E005DBA11 = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +190,7 @@
 		18A76242192F1129005DBA11 /* Samples */ = {
 			isa = PBXGroup;
 			children = (
+				18A597B319330C990068662E /* Images */,
 				18A76248192F15F8005DBA11 /* ImageScroll */,
 			);
 			name = Samples;
@@ -265,8 +288,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				18A7621E192F0F9E005DBA11 /* Main_iPad.storyboard in Resources */,
+				18A597BB19330C990068662E /* banner3.jpg in Resources */,
+				18A597B919330C990068662E /* banner1.jpg in Resources */,
 				18A76226192F0F9E005DBA11 /* Images.xcassets in Resources */,
+				18A597BC19330C990068662E /* banner4.jpg in Resources */,
 				18A7621B192F0F9E005DBA11 /* Main_iPhone.storyboard in Resources */,
+				18A597BA19330C990068662E /* banner2.jpg in Resources */,
+				18A597BD19330C990068662E /* banner5.jpg in Resources */,
 				18A76212192F0F9E005DBA11 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,6 +534,7 @@
 				18A7623E192F0F9E005DBA11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18A7623F192F0F9E005DBA11 /* Build configuration list for PBXNativeTarget "MySamplesTests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +543,7 @@
 				18A76241192F0F9E005DBA11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

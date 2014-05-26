@@ -25,7 +25,7 @@
     /// 自動スクロールのためのタイマー
     NSTimer *autoScrollTimer_;
     /// 自動スクロールをする規定時間
-    float autoScrollTimeCount_;
+    int autoScrollTimeCount_;
     /// タイマーカウントアップカウント
     float timerCount_;
     /// 自動スクロール時のスクロール時間
@@ -37,6 +37,9 @@
     /// ページごとのviewを格納する
     NSMutableArray *pageContainerArray_;
     
+    /// ページのタッチ有効/無効
+    BOOL isPageTouchEnable_;
+    
 }
 @end
 
@@ -46,6 +49,7 @@
 @synthesize isAutoScrollEnable = isAutoScrollEnable_;
 @synthesize autoScrollDuration = autoScrollDuration_;
 @synthesize autoScrollTimeCount = autoScrollTimeCount_;
+@synthesize isPageTouchEnable = isPageTouchEnable_;
 
 
 #pragma mark - Init
@@ -55,7 +59,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        
         self.userInteractionEnabled = YES;
         
         scrollView_ = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
@@ -69,44 +72,100 @@
 //        scrollView_.delaysContentTouches = YES;
         [self addSubview:scrollView_];
         
-        autoScrollTimeCount_ = 4.0f;
-        currentPage_ = 1;
-        autoScrollDuration_ = 0.5f;
-        
-        pageContainerArray_ = [[NSMutableArray alloc] init];
-        
-        
+        // デフォルト値
         {
-            // テスト
-            scrollView_.contentSize = CGSizeMake(1280, frame.size.height);
-            
-            pageCount_ = 4;
             isAutoScrollEnable_ = YES;
             autoScrollTimeCount_ = 4.0f;
-            pageSize_ = 320.0f;
-            [self setBackgroundColor:[UIColor blackColor]];
+            currentPage_ = 1;
+            autoScrollDuration_ = 0.5f;
             
-            for (int i = 0; i < pageCount_; i++) {
-                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i * pageSize_, 0, pageSize_, frame.size.height)];
-                UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 300, 20)];
-                label.text = [NSString stringWithFormat:@"%dページ",i + 1];
-                label.backgroundColor = [UIColor blueColor];
-                [view addSubview:label];                
-                
-                [pageContainerArray_ addObject:view];
-                [scrollView_ addSubview:view];
-            }
+            isPageTouchEnable_ = YES;
         }
         
-
-        if (isAutoScrollEnable_ && !pageCount_ != 1) {
-            [self initTimer];
-        }
-        
+        pageContainerArray_ = [[NSMutableArray alloc] init];
         
     }
     return self;
 }
+
+
+- (id)initWithFrame:(CGRect)frame imageFiles:(NSArray *)imageFiles
+{
+    self = [self initWithFrame:frame]; //[super initWithFrame:frame];
+    if (self) {
+        // ページ生成
+        pageCount_ = [imageFiles count];
+        pageSize_ = frame.size.width;
+        scrollView_.contentSize = CGSizeMake(frame.size.width * pageCount_, frame.size.height);
+        
+        for (int i = 0; i < pageCount_; i++) {
+            UIImage *image = [UIImage imageNamed:[imageFiles objectAtIndex:i]];
+
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+            imageView.frame = CGRectMake(i * pageSize_, 0, pageSize_, frame.size.height);
+            
+            [pageContainerArray_ addObject:imageView];
+            [scrollView_ addSubview:imageView];
+        }
+        
+        if (isAutoScrollEnable_ && !pageCount_ != 1) {
+            [self initTimer];
+        }
+        
+    }
+    return self;
+}
+
+
+- (id)initWithFrame:(CGRect)frame views:(NSArray *)views
+{
+    self = [self initWithFrame:frame]; //[super initWithFrame:frame];
+    if (self) {
+        // ページ生成
+        pageCount_ = [views count];
+        pageSize_ = frame.size.width;
+        scrollView_.contentSize = CGSizeMake(frame.size.width * pageCount_, frame.size.height);
+        
+        for (int i = 0; i < pageCount_; i++) {
+            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i * pageSize_, 0, pageSize_, frame.size.height)];
+            [view addSubview:[views objectAtIndex:i]];
+            
+            [pageContainerArray_ addObject:view];
+            [scrollView_ addSubview:view];
+        }
+
+        
+        if (isAutoScrollEnable_ && !pageCount_ != 1) {
+            [self initTimer];
+        }
+        
+    }
+    return self;
+}
+
+
+#pragma mark - Setter
+
+- (void)setAutoScrollEnable:(BOOL)b
+{
+    
+    isAutoScrollEnable_ = b;
+    if (isAutoScrollEnable_) {
+        [self initTimer];
+    }
+    else{
+        if (autoScrollTimer_) {
+            [autoScrollTimer_ invalidate];
+        }
+    }
+    
+}
+
+//- (void)setPageTouchEnable:(BOOL)b
+//{
+//    
+//    
+//}
 
 
 #pragma mark - Timer
@@ -114,7 +173,7 @@
 /// タイマー生成
 - (void)initTimer
 {
-    NSLog(@"initTimer");
+//    NSLog(@"initTimer");
     timerCount_ = 0.0f;
     autoScrollTimer_ = [NSTimer scheduledTimerWithTimeInterval:1.0f
                                                         target:self
@@ -127,7 +186,7 @@
 /// 1秒毎に呼ばれtimeCount_をカウントアップする
 - (void)doTimer:(NSTimer *)timer
 {
-    NSLog(@"doTimer %f",timerCount_);
+//    NSLog(@"doTimer %f",timerCount_);
     if (++timerCount_ > autoScrollTimeCount_) {
         // カウントを初期化
         timerCount_ = 0.0f;
@@ -198,6 +257,9 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
 //    NSLog(@"touchesBegan");
+    
+    if (!isPageTouchEnable_) return;
+    
     isTouchesMoved_ = NO;
     if (isAutoScrollEnable_) {
         [autoScrollTimer_ invalidate];
@@ -210,6 +272,9 @@
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
 //    NSLog(@"touchesMoved");
+    
+    if (!isPageTouchEnable_) return;
+    
     isTouchesMoved_ = YES;
     
     // viewが選択されていない状態に
@@ -219,6 +284,9 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
 //    NSLog(@"touchesEnded");
+    
+    if (!isPageTouchEnable_) return;
+    
     if (isAutoScrollEnable_) {
         [self initTimer];
     }

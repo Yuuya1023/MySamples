@@ -11,15 +11,27 @@
 @interface ImageScrollView : UIView<UIScrollViewDelegate>
 
 
-//- (id)initWithFrame:(CGRect)frame contentSize:(CGRect)contentSize;
+- (id)initWithFrame:(CGRect)frame imageFiles:(NSArray *)imageFiles;
+
+- (id)initWithFrame:(CGRect)frame views:(NSArray *)views;
+
+
 
 
 
 /// 自動スクロールの有効/無効
 @property(nonatomic, setter = setAutoScrollEnable:) BOOL isAutoScrollEnable;
 /// 自動スクロールをする規定時間
-@property(nonatomic) float autoScrollTimeCount;
+@property(nonatomic) int autoScrollTimeCount;
 /// 自動スクロール時のスクロール時間
 @property(nonatomic) float autoScrollDuration;
+
+/// ページのタッチ有効/無効
+@property(nonatomic, setter = setPageTouchEnable:) BOOL isPageTouchEnable;
+
+
+
+
+
 
 @end
