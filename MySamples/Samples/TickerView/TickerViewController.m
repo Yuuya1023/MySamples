@@ -12,6 +12,12 @@
 
 
 @interface TickerViewController ()
+{
+    
+    TickerView *ticker1_;
+    TickerView *ticker2_;
+}
+
 
 @end
 
@@ -24,15 +30,43 @@
     // Do any additional setup after loading the view.
     
     [self.view setBackgroundColor:[UIColor grayColor]];
+
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     {
-        
-        TickerView *ticker = [[TickerView alloc] initWithFrame:CGRectMake(0, 100, 100, 30)];
-        [ticker setBackgroundColor:[UIColor whiteColor]];
-        
-        [self.view addSubview:ticker];
+        if (!ticker1_) {
+            ticker1_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 100, 320, 40)];
+            [ticker1_ setBackgroundColor:[UIColor whiteColor]];
+            
+            [self.view addSubview:ticker1_];
+        }
     }
+    {
+        if (!ticker2_) {
+            ticker2_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 200, 160, 40)];
+            [ticker2_ setBackgroundColor:[UIColor whiteColor]];
+            
+            [self.view addSubview:ticker2_];
+        }
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    {
+        [ticker1_ startAnimation];
+        [ticker2_ startAnimation];
+    }
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

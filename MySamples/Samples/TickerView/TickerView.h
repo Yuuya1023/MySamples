@@ -10,4 +10,8 @@
 
 @interface TickerView : UIView
 
+
+- (void)startAnimation;
+- (void)stopAnimation;
+
 @end

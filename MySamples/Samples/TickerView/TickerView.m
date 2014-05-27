@@ -10,16 +10,29 @@
 
 @interface TickerView () {
     
-    UIView *animationView_;
+    UIScrollView *animationView_;
     
     ///
-    double size_;
+    float frameX_;
     
     ///
-    double movePace_;
+    float size_;
     
     ///
-    double animationDelay_;
+    float movePace_;
+    
+    ///
+    float animationDelay_;
+    
+    /// 表示フォント
+    UIFont *textFont_;
+    
+    /// テキスト間の幅
+    float textMargin_;
+    
+    /// アニメーションが開始されているか
+    BOOL isStartedAnimation_;
+    
 }
 
 @end
@@ -38,101 +51,22 @@
                         @"ユニチカが金融支援を要請、優先株発行で370億円調達 ",
                         @"タイ国王、プラユット陸軍司令官の指導者就任を正式に承認",
                         @"リバウンドの株高・円安継続、欧州懸念浮上で持続性には疑問も",
-//                        @"ドル101円後半、材料乏しくレンジ内で",
-//                        @"ハイテク企業、自前のプログラミング学校開設（ウォール・ストリート・ジャーナル）",
-//                        @"アップルの開発者会議、今年の目玉は？―6月2日開幕（ウォール・ストリート・ジャーナル）",
-//                        @"販売ツールとしての香りの利用 食べ物以外でも（ウォール・ストリート・ジャーナル）",
+                        @"ドル101円後半、材料乏しくレンジ内で",
+                        @"ハイテク企業、自前のプログラミング学校開設（ウォール・ストリート・ジャーナル）",
+                        @"アップルの開発者会議、今年の目玉は？―6月2日開幕（ウォール・ストリート・ジャーナル）",
+                        @"販売ツールとしての香りの利用 食べ物以外でも（ウォール・ストリート・ジャーナル）",
                         nil];
         
         animationDelay_ = 1.0f;
         movePace_ = 60.0f;
+        frameX_ = frame.size.width;
+        textFont_ = [UIFont fontWithName:@"Helvetica-Bold"size:25];
+        textMargin_ = 10.0f;
+        isStartedAnimation_ = NO;
         
-        // 簡易版
-        {
-            // 横に長いviewを作成
-            [self createView:arr];
-            
-            UIView *copyView = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:animationView_]];
-            [self addSubview:copyView];
-            
-            // スクロール開始
-            [self startAutoScroll:copyView];
-
-        }
         
-//        float move = 50.0f;
-//        
-//
-//        // 文字列の長さを取得
-//        CGSize size;
-//        {
-//            size = [[arr objectAtIndex:0] sizeWithFont:font forWidth:bounds.width lineBreakMode:mode];
-//            
-//            // ラベル
-//            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-//            label.text = (NSString *)[arr objectAtIndex:0];
-//            
-//            [self addSubview:label];
-//            
-//            NSLog(@"%@",[arr objectAtIndex:0]);
-//            NSLog(@"%@",NSStringFromCGRect(label.frame));
-//            
-//            float d = size.width / move;
-//            [UIView animateWithDuration:d
-//                                  delay:0.0f
-//                                options:UIViewAnimationOptionCurveLinear
-//                             animations:^(void) {
-//                                 label.frame = CGRectMake(- size.width, 0, size.width, size.height);
-//                             } completion:^(BOOL finished) {
-//                                 
-//                             }];
-//        }
-//        
-//        // 次に繋がるラベルを用意
-//        CGSize size2;
-//        {
-//            size2 = [[arr objectAtIndex:1] sizeWithFont:font forWidth:bounds.width lineBreakMode:mode];
-//            
-//            // ラベル
-//            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(size.width + 20, 0, size2.width, size2.height)];
-//            label.text = (NSString *)[arr objectAtIndex:1];
-//            
-//            [self addSubview:label];
-//            
-//            NSLog(@"%@",[arr objectAtIndex:1]);
-//            NSLog(@"%@",NSStringFromCGRect(label.frame));
-//            
-//            float d = (size2.width + size.width + 20) / move;
-//            [UIView animateWithDuration:d
-//                                  delay:0.0f
-//                                options:UIViewAnimationOptionCurveLinear
-//                             animations:^(void) {
-//                                 label.frame = CGRectMake(-(size2.width + size.width + 20), 0, size2.width, size2.height);
-//                             } completion:^(BOOL finished) {
-//                                 
-//                             }];
-//        }
-        
-//        CGSize size3;
-//        {
-//            size3 = [[arr objectAtIndex:2] sizeWithFont:font forWidth:bounds.width lineBreakMode:mode];
-//            
-//            // ラベル
-//            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(size.width + size2.width + 20, 0, size3.width, size3.height)];
-//            label.text = (NSString *)[arr objectAtIndex:2];
-//            
-//            [self addSubview:label];
-//            
-//            
-//            [UIView animateWithDuration:20
-//                                  delay:0.0f
-//                                options:UIViewAnimationOptionCurveLinear
-//                             animations:^(void) {
-//                                 label.frame = CGRectMake(label.frame.origin.x - 1024, 0, size3.width, size3.height);
-//                             } completion:^(BOOL finished) {
-//                                 
-//                             }];
-//        }
+        // 横に長いviewを作成
+        [self createViewWithFrame:frame stringArray:arr];
         
     }
     return self;
@@ -141,44 +75,58 @@
 
 #pragma mark -
 
-- (void)createView:(NSArray *)arr{
+- (void)createViewWithFrame:(CGRect)frame stringArray:(NSArray *)arr
+{
     
     // 文字列の長さ取得のための変数
-    CGSize bounds = CGSizeMake(1024, 30);
-    UIFont *font = [UIFont fontWithName:@"Helvetica-Bold"size:18];
-    NSLineBreakMode mode = NSLineBreakByCharWrapping;
+    CGSize bounds = CGSizeMake(2048, 1024);
+//    NSLineBreakMode mode = NSLineBreakByWordWrapping;
     
-    size_ = 0.0f;
-    animationView_ = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    // テキストの配置
+    size_ = frame.size.width;
+    animationView_ = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
     for (int i = 0; i < [arr count]; i++) {
+        // テキストの長さを取得
         NSString *text = [arr objectAtIndex:i];
-        CGSize textSize = [text sizeWithFont:font forWidth:bounds.width lineBreakMode:mode];
+//        CGSize textSize = [text sizeWithFont:textFont_ forWidth:bounds.width lineBreakMode:mode];
+        CGRect textRect = [text boundingRectWithSize:bounds
+                                                 options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
+                                              attributes:@{NSFontAttributeName:textFont_}
+                                                 context:nil];
+        CGSize textSize = textRect.size;
+        NSLog(@"textSize %@",NSStringFromCGSize(textSize));
         
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(size_, 0, textSize.width, textSize.height)];
+        // ラベルの作成
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(size_, frame.size.height / 2 - textSize.height / 2, textSize.width, textSize.height)];
+        label.font = textFont_;
         label.text = text;
+        label.textColor = RGB(arc4random() % 255, arc4random() % 255, arc4random() % 255); // ランダム
         [animationView_ addSubview:label];
         
-        size_ += textSize.width;
+        size_ += textSize.width + textMargin_;
         
     }
     
+    animationView_.contentSize = CGSizeMake(size_, frame.size.height);
+//    animationView_.contentOffset = CGPointMake(0, 0);
 }
 
 
 
-- (void)startAutoScroll:(UIView *)targetView
+- (void)startAutoScroll:(UIScrollView *)targetView
 {
-    
+
     // 新規viewを自動スクロール
-    double moveToX = size_;
+    float moveToX = size_;
+    float moveToY = 0;//targetView.contentOffset.y;
     double d = moveToX / movePace_;
     [UIView animateWithDuration:d
                           delay:animationDelay_
                         options:UIViewAnimationOptionCurveLinear
                      animations:^(void) {
-                         targetView.frame = CGRectMake(-moveToX, 0, 0, 0);
+                         targetView.contentOffset = CGPointMake(moveToX, moveToY);
                      } completion:^(BOOL finished) {
-                         NSLog(@"scroll finish");
+//                         NSLog(@"%@",NSStringFromCGPoint(targetView.contentOffset));
                          [targetView removeFromSuperview];
                          [self nextView];
                      }];
@@ -188,8 +136,7 @@
 - (void)nextView
 {
     
-    UIView *copyView = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:animationView_]];
-    copyView.frame = CGRectMake(self.bounds.size.width, 0, 0, 0);
+    UIScrollView *copyView = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:animationView_]];
     
     [self addSubview:copyView];
     
@@ -198,12 +145,39 @@
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^(void) {
                          // 新規viewを初期位置までアニメーション
-                         copyView.frame = CGRectMake(0, 0, 0, 0);
+                         copyView.contentOffset = CGPointMake(frameX_, 0);
                      } completion:^(BOOL finished) {
                          // 新規viewを自動スクロール
                          [self startAutoScroll:copyView];
                      }];
 }
+
+
+#pragma mark - Public Method
+
+- (void)startAnimation
+{
+    
+    if (!isStartedAnimation_) {
+        isStartedAnimation_ = YES;
+        UIScrollView *copyView = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:animationView_]];
+        copyView.contentOffset = CGPointMake(frameX_, copyView.contentOffset.y);
+        [self addSubview:copyView];
+        
+        // スクロール開始
+        [self startAutoScroll:copyView];
+    }
+    
+}
+
+
+- (void)stopAnimation
+{
+    
+    
+    
+}
+
 
 /*
 // Only override drawRect: if you perform custom drawing.
