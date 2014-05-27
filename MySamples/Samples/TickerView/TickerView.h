@@ -11,7 +11,20 @@
 @interface TickerView : UIView
 
 
+//@property(nonatomic,readonly) BOOL isStartedAnimation;
+
+
+
+
+- (id)initWithFrame:(CGRect)frame stringArray:(NSArray *)array;
+
+
 - (void)startAnimation;
-- (void)stopAnimation;
+
+- (void)pauseAnimation;
+- (void)resumeAnimation;
+
+
+
 
 @end

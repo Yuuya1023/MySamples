@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18A478D51934786D005C79B4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A478D41934786D005C79B4 /* QuartzCore.framework */; };
 		18A597B919330C990068662E /* banner1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18A597B419330C990068662E /* banner1.jpg */; };
 		18A597BA19330C990068662E /* banner2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18A597B519330C990068662E /* banner2.jpg */; };
 		18A597BB19330C990068662E /* banner3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18A597B619330C990068662E /* banner3.jpg */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18A478D41934786D005C79B4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		18A597B419330C990068662E /* banner1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner1.jpg; sourceTree = "<group>"; };
 		18A597B519330C990068662E /* banner2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner2.jpg; sourceTree = "<group>"; };
 		18A597B619330C990068662E /* banner3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner3.jpg; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A478D51934786D005C79B4 /* QuartzCore.framework in Frameworks */,
 				18A7620A192F0F9E005DBA11 /* CoreGraphics.framework in Frameworks */,
 				18A7620C192F0F9E005DBA11 /* UIKit.framework in Frameworks */,
 				18A76208192F0F9E005DBA11 /* Foundation.framework in Frameworks */,
@@ -162,6 +165,7 @@
 		18A76206192F0F9E005DBA11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18A478D41934786D005C79B4 /* QuartzCore.framework */,
 				18A76207192F0F9E005DBA11 /* Foundation.framework */,
 				18A76209192F0F9E005DBA11 /* CoreGraphics.framework */,
 				18A7620B192F0F9E005DBA11 /* UIKit.framework */,

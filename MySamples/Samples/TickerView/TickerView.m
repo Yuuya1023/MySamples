@@ -6,22 +6,28 @@
 //  Copyright (c) 2014年 南部 祐耶. All rights reserved.
 //
 
+// TODO: 画面遷移後の挙動(前回の位置からスクロールを続ける)を直す
+// TODO: スクロールの早さを厳密に調整出来るようにする
+// TODO: viewDidLoadでアニメーションを開始させると座標が変になるのをどうにかしたい
+
+
 #import "TickerView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TickerView () {
     
     UIScrollView *animationView_;
     
-    ///
-    float frameX_;
+    /// 参照用
+    UIScrollView *tempView_;
     
-    ///
+    /// アニメーション対象のViewの長さ
     float size_;
     
-    ///
+    /// アニメーションの動く早さ
     float movePace_;
     
-    ///
+    /// アニメーション開始までの遅延時間
     float animationDelay_;
     
     /// 表示フォント
@@ -33,10 +39,14 @@
     /// アニメーションが開始されているか
     BOOL isStartedAnimation_;
     
+    /// ポーズ状態かどうか
+    BOOL isPaused_;
+    
 }
 
 @end
 @implementation TickerView
+//@synthesize isStartedAnimation = isStartedAnimation_;
 
 #pragma mark - Init
 
@@ -45,33 +55,26 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        
-        NSArray *arr = [NSArray arrayWithObjects:
-                        @"アングル：タイ軍政にソーシャルメディアで抗戦、市民らデモ継続",
-                        @"ユニチカが金融支援を要請、優先株発行で370億円調達 ",
-                        @"タイ国王、プラユット陸軍司令官の指導者就任を正式に承認",
-                        @"リバウンドの株高・円安継続、欧州懸念浮上で持続性には疑問も",
-                        @"ドル101円後半、材料乏しくレンジ内で",
-                        @"ハイテク企業、自前のプログラミング学校開設（ウォール・ストリート・ジャーナル）",
-                        @"アップルの開発者会議、今年の目玉は？―6月2日開幕（ウォール・ストリート・ジャーナル）",
-                        @"販売ツールとしての香りの利用 食べ物以外でも（ウォール・ストリート・ジャーナル）",
-                        nil];
-        
         animationDelay_ = 1.0f;
         movePace_ = 60.0f;
-        frameX_ = frame.size.width;
-        textFont_ = [UIFont fontWithName:@"Helvetica-Bold"size:25];
+        textFont_ = [UIFont fontWithName:@"Helvetica-Bold"size:18];
         textMargin_ = 10.0f;
         isStartedAnimation_ = NO;
-        
-        
-        // 横に長いviewを作成
-        [self createViewWithFrame:frame stringArray:arr];
-        
+        isPaused_ = NO;
     }
     return self;
 }
 
+- (id)initWithFrame:(CGRect)frame stringArray:(NSArray *)array
+{
+    self = [self initWithFrame:frame];
+    if (self) {
+        
+        [self createViewWithFrame:frame stringArray:array];
+        
+    }
+    return self;
+}
 
 #pragma mark -
 
@@ -136,19 +139,19 @@
 - (void)nextView
 {
     
-    UIScrollView *copyView = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:animationView_]];
+    tempView_ = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:animationView_]];
     
-    [self addSubview:copyView];
+    [self addSubview:tempView_];
     
     [UIView animateWithDuration:0.5f
                           delay:0.0f
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^(void) {
                          // 新規viewを初期位置までアニメーション
-                         copyView.contentOffset = CGPointMake(frameX_, 0);
+                         tempView_.contentOffset = CGPointMake(self.frame.size.width, 0);
                      } completion:^(BOOL finished) {
                          // 新規viewを自動スクロール
-                         [self startAutoScroll:copyView];
+                         [self startAutoScroll:tempView_];
                      }];
 }
 
@@ -160,21 +163,42 @@
     
     if (!isStartedAnimation_) {
         isStartedAnimation_ = YES;
-        UIScrollView *copyView = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:animationView_]];
-        copyView.contentOffset = CGPointMake(frameX_, copyView.contentOffset.y);
-        [self addSubview:copyView];
-        
+        tempView_ = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:animationView_]];
+        [self addSubview:tempView_];
+        tempView_.contentOffset = CGPointMake(self.frame.size.width, tempView_.contentOffset.y);
         // スクロール開始
-        [self startAutoScroll:copyView];
+        [self startAutoScroll:tempView_];
+    }
+
+    
+}
+
+
+- (void)pauseAnimation
+{
+    
+    if (!isPaused_) {
+        isPaused_ = YES;
+        CFTimeInterval pausedTime = [tempView_.layer convertTime:CACurrentMediaTime() fromLayer:nil];
+        tempView_.layer.speed = 0.0f;
+        tempView_.layer.timeOffset = pausedTime;
     }
     
 }
 
 
-- (void)stopAnimation
+- (void)resumeAnimation
 {
     
-    
+    if (isPaused_) {
+        isPaused_ = NO;
+        CFTimeInterval pausedTime = [tempView_.layer timeOffset];
+        tempView_.layer.speed = 1.0;
+        tempView_.layer.timeOffset = 0.0;
+        tempView_.layer.beginTime = 0.0;
+        CFTimeInterval timeSincePause = [tempView_.layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
+        tempView_.layer.beginTime = timeSincePause;
+    }
     
 }
 
