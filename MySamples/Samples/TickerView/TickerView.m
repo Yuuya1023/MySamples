@@ -12,6 +12,9 @@
 #import "TickerView.h"
 #import <QuartzCore/QuartzCore.h>
 
+
+#define MAX_TEXT_SIZE CGSizeMake(2048, 1024)
+
 @interface TickerView () {
     
     UIScrollView *animationView_;
@@ -78,7 +81,8 @@
 
 - (id)initWithFrame:(CGRect)frame stringArray:(NSArray *)array
 {
-    return [self initWithFrame:frame stringArray:array
+    return [self initWithFrame:frame
+                   stringArray:array
                           font:kTickerFont
                          speed:kTickerAnimationSpeed
                     textMargin:kTickerTextMargin
@@ -123,7 +127,7 @@
 {
     
     // 文字列の長さ取得のための変数
-    CGSize bounds = CGSizeMake(2048, 1024);
+    CGSize bounds = MAX_TEXT_SIZE;
 //    NSLineBreakMode mode = NSLineBreakByWordWrapping;
     
     // テキストの配置

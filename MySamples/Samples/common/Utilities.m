@@ -32,4 +32,16 @@
 }
 
 
++ (void)showDefaultAlertWithTitle:(NSString *)title message:(NSString *)message
+{
+    UIAlertView *alert =
+    [[UIAlertView alloc] initWithTitle:title
+                               message:message
+                              delegate:self
+                     cancelButtonTitle:nil
+                     otherButtonTitles:@"OK", nil];
+    [alert show];
+}
+
+
 @end

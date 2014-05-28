@@ -99,7 +99,8 @@
         if (ticker3_) {
             [ticker3_ removeFromSuperview];
         }
-        ticker3_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 25) stringArray:arr2
+        ticker3_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 25)
+                                         stringArray:arr2
                                                 font:[UIFont fontWithName:@"GillSans" size:20]
                                                speed:70.0f
                                           textMargin:30.0f
@@ -112,7 +113,8 @@
         if (ticker4_) {
             [ticker4_ removeFromSuperview];
         }
-        ticker4_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 235, 160, 25) stringArray:arr2
+        ticker4_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 235, 160, 25)
+                                         stringArray:arr2
                                                 font:[UIFont fontWithName:@"GillSans" size:10]
                                                speed:20.0f
                                           textMargin:10.0f

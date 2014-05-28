@@ -13,4 +13,9 @@
 /// 配列をシャッフル
 + (NSArray *)shuffleArray:(NSArray *)array;
 
+/// 標準のアラート表示
++ (void)showDefaultAlertWithTitle:(NSString *)title message:(NSString *)message;
+
+
+
 @end
