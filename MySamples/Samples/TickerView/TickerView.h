@@ -19,8 +19,7 @@
 - (id)initWithFrame:(CGRect)frame stringArray:(NSArray *)array;
 
 
-//- (void)startAnimation;
-
+- (void)restartAnimation;
 - (void)pauseAnimation;
 - (void)resumeAnimation;
 

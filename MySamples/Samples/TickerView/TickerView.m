@@ -6,7 +6,6 @@
 //  Copyright (c) 2014年 南部 祐耶. All rights reserved.
 //
 
-// TODO: 画面遷移後の挙動(前回の位置からスクロールを続ける)を直す
 // TODO: スクロールの早さを厳密に調整出来るようにする
 
 
@@ -60,6 +59,12 @@
         textMargin_ = 10.0f;
         isStartedAnimation_ = NO;
         isPaused_ = NO;
+        
+        // ホームに一旦戻ってしまうとanimationWithDurationが終わるので再開させる
+        [NOTIF_CENTER addObserver:self
+                         selector:NSSelectorFromString(@"restartAnimation")
+                             name:NOTIF_NAME_APPLICATION_WILL_ENTER_FOREGROUND
+                           object:nil];
     }
     return self;
 }
@@ -80,7 +85,7 @@
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
     [super willMoveToSuperview:newSuperview];
-    NSLog(@"willMoveToSuperview");
+//    NSLog(@"willMoveToSuperview");
     
     [self startAnimation];
     
@@ -89,14 +94,14 @@
 - (void)didMoveToSuperview
 {
     [super didMoveToSuperview];
-    NSLog(@"didMoveToSuperview");
+//    NSLog(@"didMoveToSuperview");
     
 }
 
 - (void)removeFromSuperview
 {
     [super removeFromSuperview];
-    NSLog(@"removeFromSuperview");
+//    NSLog(@"removeFromSuperview");
     
     
 }
@@ -144,7 +149,7 @@
 - (void)startAutoScroll:(UIScrollView *)targetView
 {
     
-    NSLog(@"startAutoScroll");
+//    NSLog(@"startAutoScroll");
     // 新規viewを自動スクロール
     float moveToX = size_;
     float moveToY = 0;//targetView.contentOffset.y;
@@ -157,7 +162,7 @@
                      } completion:^(BOOL finished) {
 //                         NSLog(@"%@",NSStringFromCGPoint(targetView.contentOffset));
                          if (finished) {
-                             NSLog(@"scroll finish.");
+//                             NSLog(@"scroll finish.");
                              [targetView removeFromSuperview];
                              [self nextView];
                          }
@@ -200,6 +205,18 @@
         // スクロール開始
         [self startAutoScroll:tempView_];
     }
+    
+}
+
+- (void)restartAnimation
+{
+    
+    isStartedAnimation_ = NO;
+    if (tempView_) {
+        [tempView_ removeFromSuperview];
+    }
+    
+    [self startAnimation];
     
 }
 

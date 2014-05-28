@@ -36,8 +36,9 @@
 // AppDelegate
 #define APP_DELEGATE ((AppDelegate*)[[UIApplication sharedApplication] delegate])
 
-// UserDefault
+// ショートカット
 #define USER_DEFAULT [NSUserDefaults standardUserDefaults]
+#define NOTIF_CENTER [NSNotificationCenter defaultCenter]
 
 // 画面サイズ
 #define SCREEN_BOUNDS   ([UIScreen mainScreen].bounds)
@@ -53,6 +54,7 @@
 #define RGBA(r, g, b, a)    [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 
 
-
-
+// NSNotificationName
+#define NOTIF_NAME_APPLICATION_WILL_RESIGN_ACTIVE @"NOTIF_NAME_APPLICATION_WILL_RESIGN_ACTIVE"
+#define NOTIF_NAME_APPLICATION_WILL_ENTER_FOREGROUND @"NOTIF_NAME_APPLICATION_WILL_ENTER_FOREGROUND" 
 
