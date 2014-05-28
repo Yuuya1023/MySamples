@@ -33,6 +33,7 @@
 		18A76239192F0F9E005DBA11 /* MySamplesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A76238192F0F9E005DBA11 /* MySamplesTests.m */; };
 		18A7624B192F15F8005DBA11 /* ImageScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A7624A192F15F8005DBA11 /* ImageScrollViewController.m */; };
 		18A7624E192F17B4005DBA11 /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A7624D192F17B4005DBA11 /* ImageScrollView.m */; };
+		18BF3B421935EAAA001AB8CF /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BF3B411935EAAA001AB8CF /* Utilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		18A7624A192F15F8005DBA11 /* ImageScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollViewController.m; sourceTree = "<group>"; };
 		18A7624C192F17B4005DBA11 /* ImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollView.h; sourceTree = "<group>"; };
 		18A7624D192F17B4005DBA11 /* ImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollView.m; sourceTree = "<group>"; };
+		18BF3B401935EAAA001AB8CF /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		18BF3B411935EAAA001AB8CF /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 			children = (
 				18A597BF193326C50068662E /* UIScrollView+TouchEvent.h */,
 				18A597C0193326C50068662E /* UIScrollView+TouchEvent.m */,
+				18BF3B401935EAAA001AB8CF /* Utilities.h */,
+				18BF3B411935EAAA001AB8CF /* Utilities.m */,
 			);
 			name = common;
 			path = Samples/common;
@@ -349,6 +354,7 @@
 				18A76218192F0F9E005DBA11 /* MySamplesAppDelegate.m in Sources */,
 				18A76221192F0F9E005DBA11 /* MySamplesMasterViewController.m in Sources */,
 				18A597C2193326C50068662E /* UIScrollView+TouchEvent.m in Sources */,
+				18BF3B421935EAAA001AB8CF /* Utilities.m in Sources */,
 				18A76214192F0F9E005DBA11 /* main.m in Sources */,
 				18A597C81933279F0068662E /* TickerView.m in Sources */,
 				18A597C5193327230068662E /* TickerViewController.m in Sources */,

@@ -23,7 +23,7 @@
     float size_;
     
     /// アニメーションの動く早さ
-    float movePace_;
+    float animationSpeed_;
     
     /// アニメーション開始までの遅延時間
     float animationDelay_;
@@ -44,21 +44,27 @@
 
 @end
 @implementation TickerView
-//@synthesize isStartedAnimation = isStartedAnimation_;
 
 #pragma mark - Init
 
 - (id)initWithFrame:(CGRect)frame
+        stringArray:(NSArray *)array
+               font:(UIFont *)font
+              speed:(float)speed
+         textMargin:(float)margin
+              delay:(float)delay
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        animationDelay_ = 1.0f;
-        movePace_ = 60.0f;
-        textFont_ = [UIFont fontWithName:@"Helvetica-Bold"size:18];
-        textMargin_ = 10.0f;
         isStartedAnimation_ = NO;
         isPaused_ = NO;
+        animationDelay_ = delay;
+        animationSpeed_ = speed;
+        textFont_ = font;
+        textMargin_ = margin;
+        
+        [self createViewWithFrame:frame stringArray:array];
         
         // ホームに一旦戻ってしまうとanimationWithDurationが終わるので再開させる
         [NOTIF_CENTER addObserver:self
@@ -69,16 +75,17 @@
     return self;
 }
 
+
 - (id)initWithFrame:(CGRect)frame stringArray:(NSArray *)array
 {
-    self = [self initWithFrame:frame];
-    if (self) {
-        
-        [self createViewWithFrame:frame stringArray:array];
-        
-    }
-    return self;
+    return [self initWithFrame:frame stringArray:array
+                          font:kTickerFont
+                         speed:kTickerAnimationSpeed
+                    textMargin:kTickerTextMargin
+                         delay:kTickerAnimationDelay];
 }
+
+
 
 #pragma mark - UIView
 
@@ -91,12 +98,14 @@
     
 }
 
+
 - (void)didMoveToSuperview
 {
     [super didMoveToSuperview];
 //    NSLog(@"didMoveToSuperview");
     
 }
+
 
 - (void)removeFromSuperview
 {
@@ -105,6 +114,8 @@
     
     
 }
+
+
 
 #pragma mark -
 
@@ -145,7 +156,6 @@
 }
 
 
-
 - (void)startAutoScroll:(UIScrollView *)targetView
 {
     
@@ -153,7 +163,7 @@
     // 新規viewを自動スクロール
     float moveToX = size_;
     float moveToY = 0;//targetView.contentOffset.y;
-    double d = moveToX / movePace_;
+    double d = moveToX / animationSpeed_;
     [UIView animateWithDuration:d
                           delay:animationDelay_
                         options:UIViewAnimationOptionCurveLinear
@@ -172,7 +182,7 @@
 
 - (void)nextView
 {
-    NSLog(@"nextView");
+//    NSLog(@"nextView");
     tempView_ = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:animationView_]];
     
     [self addSubview:tempView_];
@@ -207,6 +217,7 @@
     }
     
 }
+
 
 - (void)restartAnimation
 {
@@ -248,6 +259,7 @@
     }
     
 }
+
 
 
 /*

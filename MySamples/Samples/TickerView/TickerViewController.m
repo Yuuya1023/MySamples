@@ -9,6 +9,7 @@
 #import "TickerViewController.h"
 #import "TickerView.h"
 
+#import "Utilities.h"
 
 
 @interface TickerViewController ()
@@ -35,14 +36,14 @@
 
     {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        button.frame = CGRectMake(20, 30, 50, 100);
+        button.frame = CGRectMake(170, 30, 50, 100);
         [button addTarget:self action:NSSelectorFromString(@"pause:") forControlEvents:UIControlEventTouchUpInside];
         [button setTitle:@"pause" forState:UIControlStateNormal];
         [self.view addSubview:button];
     }
     {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        button.frame = CGRectMake(80, 30, 70, 100);
+        button.frame = CGRectMake(230, 30, 70, 100);
         [button addTarget:self action:NSSelectorFromString(@"resume:") forControlEvents:UIControlEventTouchUpInside];
         [button setTitle:@"resume" forState:UIControlStateNormal];
         [self.view addSubview:button];
@@ -63,6 +64,8 @@
                     @"アップルの開発者会議、今年の目玉は？―6月2日開幕（ウォール・ストリート・ジャーナル）",
                     @"販売ツールとしての香りの利用 食べ物以外でも（ウォール・ストリート・ジャーナル）",
                     nil];
+    arr = [Utilities shuffleArray:arr];
+    
     {
         if (ticker1_) {
             [ticker1_ removeFromSuperview];
@@ -84,16 +87,23 @@
     }
     
     NSArray *arr2 = [NSArray arrayWithObjects:
-                     @"ハイテク企業、自前のプログラミング学校開設（ウォール・ストリート・ジャーナル）",
-                     @"ハイテク企業、自前のプログラミング学校開設（ウォール・ストリート・ジャーナル）",
-                     @"ハイテク企業、自前のプログラミング学校開設（ウォール・ストリート・ジャーナル）",
+                     @"Squeeze",
+                     @"PUNISHER",
+                     @"Engraved Mark",
+                     @"Stella Sinistra",
+                     @"Last Dance",
                      nil];
+    arr2 = [Utilities shuffleArray:arr2];
     
     {
         if (ticker3_) {
             [ticker3_ removeFromSuperview];
         }
-        ticker3_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 250, 320, 40) stringArray:arr2];
+        ticker3_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 25) stringArray:arr2
+                                                font:[UIFont fontWithName:@"GillSans" size:20]
+                                               speed:70.0f
+                                          textMargin:30.0f
+                                               delay:2.0f];
         [ticker3_ setBackgroundColor:[UIColor whiteColor]];
         
         [self.view addSubview:ticker3_];
@@ -102,7 +112,11 @@
         if (ticker4_) {
             [ticker4_ removeFromSuperview];
         }
-        ticker4_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 300, 160, 40) stringArray:arr2];
+        ticker4_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 235, 160, 25) stringArray:arr2
+                                                font:[UIFont fontWithName:@"GillSans" size:10]
+                                               speed:20.0f
+                                          textMargin:10.0f
+                                               delay:0.0f];
         [ticker4_ setBackgroundColor:[UIColor whiteColor]];
         
         [self.view addSubview:ticker4_];
