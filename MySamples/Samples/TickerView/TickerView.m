@@ -8,7 +8,6 @@
 
 // TODO: 画面遷移後の挙動(前回の位置からスクロールを続ける)を直す
 // TODO: スクロールの早さを厳密に調整出来るようにする
-// TODO: viewDidLoadでアニメーションを開始させると座標が変になるのをどうにかしたい
 
 
 #import "TickerView.h"
@@ -157,9 +156,11 @@
                          targetView.contentOffset = CGPointMake(moveToX, moveToY);
                      } completion:^(BOOL finished) {
 //                         NSLog(@"%@",NSStringFromCGPoint(targetView.contentOffset));
-                         NSLog(@"scroll finish.");
-                         [targetView removeFromSuperview];
-                         [self nextView];
+                         if (finished) {
+                             NSLog(@"scroll finish.");
+                             [targetView removeFromSuperview];
+                             [self nextView];
+                         }
                      }];
 }
 
@@ -178,8 +179,10 @@
                          // 新規viewを初期位置までアニメーション
                          tempView_.contentOffset = CGPointMake(self.frame.size.width, 0);
                      } completion:^(BOOL finished) {
-                         // 新規viewを自動スクロール
-                         [self startAutoScroll:tempView_];
+                         if (finished) {
+                             // 新規viewを自動スクロール
+                             [self startAutoScroll:tempView_];
+                         }
                      }];
 }
 

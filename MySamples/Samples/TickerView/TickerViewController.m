@@ -64,20 +64,23 @@
                     @"販売ツールとしての香りの利用 食べ物以外でも（ウォール・ストリート・ジャーナル）",
                     nil];
     {
-        if (!ticker1_) {
-            ticker1_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 100, 320, 40) stringArray:arr];
-            [ticker1_ setBackgroundColor:[UIColor whiteColor]];
-            
-            [self.view addSubview:ticker1_];
+        if (ticker1_) {
+            [ticker1_ removeFromSuperview];
         }
+        ticker1_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 100, 320, 40) stringArray:arr];
+        [ticker1_ setBackgroundColor:[UIColor whiteColor]];
+        
+        [self.view addSubview:ticker1_];
+        
     }
     {
-        if (!ticker2_) {
-            ticker2_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 150, 160, 40) stringArray:arr];
-            [ticker2_ setBackgroundColor:[UIColor whiteColor]];
-            
-            [self.view addSubview:ticker2_];
+        if (ticker2_) {
+            [ticker2_ removeFromSuperview];
         }
+        ticker2_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 150, 160, 40) stringArray:arr];
+        [ticker2_ setBackgroundColor:[UIColor whiteColor]];
+        
+        [self.view addSubview:ticker2_];
     }
     
     NSArray *arr2 = [NSArray arrayWithObjects:
@@ -87,20 +90,22 @@
                      nil];
     
     {
-        if (!ticker3_) {
-            ticker3_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 250, 320, 40) stringArray:arr2];
-            [ticker3_ setBackgroundColor:[UIColor whiteColor]];
-            
-            [self.view addSubview:ticker3_];
+        if (ticker3_) {
+            [ticker3_ removeFromSuperview];
         }
+        ticker3_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 250, 320, 40) stringArray:arr2];
+        [ticker3_ setBackgroundColor:[UIColor whiteColor]];
+        
+        [self.view addSubview:ticker3_];
     }
     {
-        if (!ticker4_) {
-            ticker4_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 300, 160, 40) stringArray:arr2];
-            [ticker4_ setBackgroundColor:[UIColor whiteColor]];
-            
-            [self.view addSubview:ticker4_];
+        if (ticker4_) {
+            [ticker4_ removeFromSuperview];
         }
+        ticker4_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 300, 160, 40) stringArray:arr2];
+        [ticker4_ setBackgroundColor:[UIColor whiteColor]];
+        
+        [self.view addSubview:ticker4_];
     }
 }
 
@@ -112,11 +117,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    
-//    [ticker1_ pauseAnimation];
-//    [ticker2_ pauseAnimation];
-//    [ticker3_ pauseAnimation];
-//    [ticker4_ pauseAnimation];
+    [super viewDidDisappear:animated];
     
 }
 
