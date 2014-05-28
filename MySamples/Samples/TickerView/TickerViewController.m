@@ -33,7 +33,20 @@
     
     [self.view setBackgroundColor:[UIColor grayColor]];
 
-    
+    {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        button.frame = CGRectMake(20, 30, 50, 100);
+        [button addTarget:self action:NSSelectorFromString(@"pause:") forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:@"pause" forState:UIControlStateNormal];
+        [self.view addSubview:button];
+    }
+    {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        button.frame = CGRectMake(80, 30, 70, 100);
+        [button addTarget:self action:NSSelectorFromString(@"resume:") forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:@"resume" forState:UIControlStateNormal];
+        [self.view addSubview:button];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -95,28 +108,6 @@
 {
     [super viewDidAppear:animated];
     
-    {
-        [ticker1_ startAnimation];
-        [ticker2_ startAnimation];
-        [ticker3_ startAnimation];
-        [ticker4_ startAnimation];
-    }
-    
-    
-    {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        button.frame = CGRectMake(20, 30, 50, 100);
-        [button addTarget:self action:NSSelectorFromString(@"pause:") forControlEvents:UIControlEventTouchUpInside];
-        [button setTitle:@"pause" forState:UIControlStateNormal];
-        [self.view addSubview:button];
-    }
-    {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        button.frame = CGRectMake(80, 30, 70, 100);
-        [button addTarget:self action:NSSelectorFromString(@"resume:") forControlEvents:UIControlEventTouchUpInside];
-        [button setTitle:@"resume" forState:UIControlStateNormal];
-        [self.view addSubview:button];
-    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated

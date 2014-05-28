@@ -76,6 +76,32 @@
     return self;
 }
 
+#pragma mark - UIView
+
+- (void)willMoveToSuperview:(UIView *)newSuperview
+{
+    [super willMoveToSuperview:newSuperview];
+    NSLog(@"willMoveToSuperview");
+    
+    [self startAnimation];
+    
+}
+
+- (void)didMoveToSuperview
+{
+    [super didMoveToSuperview];
+    NSLog(@"didMoveToSuperview");
+    
+}
+
+- (void)removeFromSuperview
+{
+    [super removeFromSuperview];
+    NSLog(@"removeFromSuperview");
+    
+    
+}
+
 #pragma mark -
 
 - (void)createViewWithFrame:(CGRect)frame stringArray:(NSArray *)arr
@@ -97,7 +123,7 @@
                                               attributes:@{NSFontAttributeName:textFont_}
                                                  context:nil];
         CGSize textSize = textRect.size;
-        NSLog(@"textSize %@",NSStringFromCGSize(textSize));
+//        NSLog(@"textSize %@",NSStringFromCGSize(textSize));
         
         // ラベルの作成
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(size_, frame.size.height / 2 - textSize.height / 2, textSize.width, textSize.height)];
@@ -118,7 +144,8 @@
 
 - (void)startAutoScroll:(UIScrollView *)targetView
 {
-
+    
+    NSLog(@"startAutoScroll");
     // 新規viewを自動スクロール
     float moveToX = size_;
     float moveToY = 0;//targetView.contentOffset.y;
@@ -130,6 +157,7 @@
                          targetView.contentOffset = CGPointMake(moveToX, moveToY);
                      } completion:^(BOOL finished) {
 //                         NSLog(@"%@",NSStringFromCGPoint(targetView.contentOffset));
+                         NSLog(@"scroll finish.");
                          [targetView removeFromSuperview];
                          [self nextView];
                      }];
@@ -138,7 +166,7 @@
 
 - (void)nextView
 {
-    
+    NSLog(@"nextView");
     tempView_ = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:animationView_]];
     
     [self addSubview:tempView_];
@@ -169,7 +197,6 @@
         // スクロール開始
         [self startAutoScroll:tempView_];
     }
-
     
 }
 
