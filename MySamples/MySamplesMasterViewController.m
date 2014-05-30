@@ -10,6 +10,7 @@
 
 #import "ImageScrollViewController.h"
 #import "TickerViewController.h"
+#import "MyTableViewController.h"
 
 
 
@@ -39,6 +40,7 @@
     _objects = [[NSMutableArray alloc] initWithObjects:
                 [[ImageScrollViewController alloc] init],
                 [[TickerViewController alloc] init],
+                [[MyTableViewController alloc] init],
                 nil];
 }
 
@@ -107,7 +109,7 @@
 {
 
     UIViewController *viewController = _objects[indexPath.row];
-
+    viewController.title = NSStringFromClass([_objects[indexPath.row] class]);
     [self.navigationController pushViewController:viewController animated:YES];
     
 }
