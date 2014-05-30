@@ -10,4 +10,8 @@
 
 @interface MyTableViewCell : UITableViewCell
 
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier url:(NSURL *)url func:(void (^)(UIImage *image, UITableViewCell *cell))func;
+
+
+
 @end
