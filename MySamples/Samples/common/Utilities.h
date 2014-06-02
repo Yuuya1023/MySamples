@@ -16,6 +16,7 @@
 /// 標準のアラート表示
 + (void)showDefaultAlertWithTitle:(NSString *)title message:(NSString *)message;
 
-
+/// 画像をリサイズする
++ (UIImage *)resizeimage:(UIImage *)image ratio:(double)ratio;
 
 @end

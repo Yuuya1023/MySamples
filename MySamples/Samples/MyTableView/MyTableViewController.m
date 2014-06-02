@@ -66,18 +66,18 @@
         UIImageView *imageV = [[UIImageView alloc] init];
         [self.view addSubview:imageV];
         [imageV setImageWithURL:[urls_ objectAtIndex:i]
-                                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                              if (!error) {
-                                                  NSURL *url =[urls_ objectAtIndex:i];
-                                                  [images_ setObject:image forKey:[NSString stringWithFormat:@"%@",[url absoluteString]]];
-                                                  
-                                                  if (temp == [urls_ count] - 1) {
-                                                      [self.view addSubview:tableView_];
-                                                  }
-                                                  
-                                                  temp++;
-                                              }
-                                          }];
+                      completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                          if (!error) {
+                              NSURL *url =[urls_ objectAtIndex:i];
+                              [images_ setObject:image forKey:[NSString stringWithFormat:@"%@",[url absoluteString]]];
+                              
+                              if (temp == [urls_ count] - 1) {
+                                  [self.view addSubview:tableView_];
+                              }
+                              
+                              temp++;
+                          }
+                      }];
     }
 }
 

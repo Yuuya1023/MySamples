@@ -44,4 +44,19 @@
 }
 
 
++ (UIImage *)resizeimage:(UIImage *)image ratio:(double)ratio
+{
+    UIImage *resImage;
+    
+    CGSize sz = CGSizeMake(image.size.width * ratio,
+                           image.size.height * ratio);
+    UIGraphicsBeginImageContext(sz);
+    [image drawInRect:CGRectMake(0, 0, sz.width, sz.height)];
+    resImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return resImage;
+}
+
+
 @end

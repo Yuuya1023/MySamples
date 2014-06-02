@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1848AB2A193C3C6300230296 /* TMPhotoQuiltViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1848AB29193C3C6300230296 /* TMPhotoQuiltViewCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1848AB35193C3F7B00230296 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1848AB2B193C3F7B00230296 /* 1.jpg */; };
+		1848AB36193C3F7B00230296 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1848AB2C193C3F7B00230296 /* 2.jpg */; };
+		1848AB37193C3F7B00230296 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1848AB2D193C3F7B00230296 /* 3.jpg */; };
+		1848AB38193C3F7B00230296 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1848AB2E193C3F7B00230296 /* 4.jpg */; };
+		1848AB39193C3F7B00230296 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1848AB2F193C3F7B00230296 /* 5.jpg */; };
+		1848AB3A193C3F7B00230296 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1848AB30193C3F7B00230296 /* 6.jpg */; };
+		1848AB3B193C3F7B00230296 /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1848AB31193C3F7B00230296 /* 7.jpg */; };
+		1848AB3C193C3F7B00230296 /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1848AB32193C3F7B00230296 /* 8.jpg */; };
+		1848AB3D193C3F7B00230296 /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1848AB33193C3F7B00230296 /* 9.jpg */; };
+		1848AB3E193C3F7B00230296 /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1848AB34193C3F7B00230296 /* 10.jpg */; };
 		185A3309193708AE003EF917 /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A3308193708AE003EF917 /* MyTableViewController.m */; };
 		185A330C19371179003EF917 /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A330B19371179003EF917 /* MyTableViewCell.m */; };
 		18A478D51934786D005C79B4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A478D41934786D005C79B4 /* QuartzCore.framework */; };
@@ -35,6 +46,10 @@
 		18A76239192F0F9E005DBA11 /* MySamplesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A76238192F0F9E005DBA11 /* MySamplesTests.m */; };
 		18A7624B192F15F8005DBA11 /* ImageScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A7624A192F15F8005DBA11 /* ImageScrollViewController.m */; };
 		18A7624E192F17B4005DBA11 /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A7624D192F17B4005DBA11 /* ImageScrollView.m */; };
+		18AA434A193C344D009A7FC6 /* TMQuiltView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AA4345193C344D009A7FC6 /* TMQuiltView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18AA434B193C344D009A7FC6 /* TMQuiltViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AA4347193C344D009A7FC6 /* TMQuiltViewCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18AA434C193C344D009A7FC6 /* TMQuiltViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AA4349193C344D009A7FC6 /* TMQuiltViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18AA4350193C36A1009A7FC6 /* WaterFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AA434F193C36A1009A7FC6 /* WaterFlowViewController.m */; };
 		18AEDFA7193847AF0081640E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AEDFA6193847AF0081640E /* ImageIO.framework */; };
 		18BF3B421935EAAA001AB8CF /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BF3B411935EAAA001AB8CF /* Utilities.m */; };
 		54312BA2C1444EC4BC88E552 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 442F78A4E1544F129EFF3994 /* libPods.a */; };
@@ -51,6 +66,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1848AB28193C3C6300230296 /* TMPhotoQuiltViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPhotoQuiltViewCell.h; sourceTree = "<group>"; };
+		1848AB29193C3C6300230296 /* TMPhotoQuiltViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPhotoQuiltViewCell.m; sourceTree = "<group>"; };
+		1848AB2B193C3F7B00230296 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		1848AB2C193C3F7B00230296 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		1848AB2D193C3F7B00230296 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		1848AB2E193C3F7B00230296 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		1848AB2F193C3F7B00230296 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		1848AB30193C3F7B00230296 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
+		1848AB31193C3F7B00230296 /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
+		1848AB32193C3F7B00230296 /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
+		1848AB33193C3F7B00230296 /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
+		1848AB34193C3F7B00230296 /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
 		185A3307193708AE003EF917 /* MyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewController.h; sourceTree = "<group>"; };
 		185A3308193708AE003EF917 /* MyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewController.m; sourceTree = "<group>"; };
 		185A330A19371179003EF917 /* MyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
@@ -91,6 +118,15 @@
 		18A7624A192F15F8005DBA11 /* ImageScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollViewController.m; sourceTree = "<group>"; };
 		18A7624C192F17B4005DBA11 /* ImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollView.h; sourceTree = "<group>"; };
 		18A7624D192F17B4005DBA11 /* ImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollView.m; sourceTree = "<group>"; };
+		18AA4343193C344D009A7FC6 /* TMQuiltView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMQuiltView-Prefix.pch"; sourceTree = "<group>"; };
+		18AA4344193C344D009A7FC6 /* TMQuiltView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMQuiltView.h; sourceTree = "<group>"; };
+		18AA4345193C344D009A7FC6 /* TMQuiltView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMQuiltView.m; sourceTree = "<group>"; };
+		18AA4346193C344D009A7FC6 /* TMQuiltViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMQuiltViewCell.h; sourceTree = "<group>"; };
+		18AA4347193C344D009A7FC6 /* TMQuiltViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMQuiltViewCell.m; sourceTree = "<group>"; };
+		18AA4348193C344D009A7FC6 /* TMQuiltViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMQuiltViewController.h; sourceTree = "<group>"; };
+		18AA4349193C344D009A7FC6 /* TMQuiltViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMQuiltViewController.m; sourceTree = "<group>"; };
+		18AA434E193C36A1009A7FC6 /* WaterFlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowViewController.h; sourceTree = "<group>"; };
+		18AA434F193C36A1009A7FC6 /* WaterFlowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowViewController.m; sourceTree = "<group>"; };
 		18AEDFA6193847AF0081640E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		18BF3B401935EAAA001AB8CF /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		18BF3B411935EAAA001AB8CF /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
@@ -125,6 +161,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1848AB27193C3C5600230296 /* TMQuiltViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1848AB28193C3C6300230296 /* TMPhotoQuiltViewCell.h */,
+				1848AB29193C3C6300230296 /* TMPhotoQuiltViewCell.m */,
+			);
+			path = TMQuiltViewCell;
+			sourceTree = "<group>";
+		};
 		185A330619370878003EF917 /* MyTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +185,16 @@
 		18A597B319330C990068662E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1848AB2B193C3F7B00230296 /* 1.jpg */,
+				1848AB2C193C3F7B00230296 /* 2.jpg */,
+				1848AB2D193C3F7B00230296 /* 3.jpg */,
+				1848AB2E193C3F7B00230296 /* 4.jpg */,
+				1848AB2F193C3F7B00230296 /* 5.jpg */,
+				1848AB30193C3F7B00230296 /* 6.jpg */,
+				1848AB31193C3F7B00230296 /* 7.jpg */,
+				1848AB32193C3F7B00230296 /* 8.jpg */,
+				1848AB33193C3F7B00230296 /* 9.jpg */,
+				1848AB34193C3F7B00230296 /* 10.jpg */,
 				18A597B419330C990068662E /* banner1.jpg */,
 				18A597B519330C990068662E /* banner2.jpg */,
 				18A597B619330C990068662E /* banner3.jpg */,
@@ -257,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				18A597BE193326C50068662E /* common */,
+				18AA434D193C367C009A7FC6 /* WaterFlowView */,
 				185A330619370878003EF917 /* MyTableView */,
 				18A597C1193326C50068662E /* TickerView */,
 				18A76248192F15F8005DBA11 /* ImageScroll */,
@@ -277,9 +333,35 @@
 			path = Samples/ImageScroll;
 			sourceTree = "<group>";
 		};
+		18AA4342193C344D009A7FC6 /* TMQuiltView */ = {
+			isa = PBXGroup;
+			children = (
+				18AA4343193C344D009A7FC6 /* TMQuiltView-Prefix.pch */,
+				18AA4344193C344D009A7FC6 /* TMQuiltView.h */,
+				18AA4345193C344D009A7FC6 /* TMQuiltView.m */,
+				18AA4346193C344D009A7FC6 /* TMQuiltViewCell.h */,
+				18AA4347193C344D009A7FC6 /* TMQuiltViewCell.m */,
+				18AA4348193C344D009A7FC6 /* TMQuiltViewController.h */,
+				18AA4349193C344D009A7FC6 /* TMQuiltViewController.m */,
+			);
+			path = TMQuiltView;
+			sourceTree = "<group>";
+		};
+		18AA434D193C367C009A7FC6 /* WaterFlowView */ = {
+			isa = PBXGroup;
+			children = (
+				18AA434E193C36A1009A7FC6 /* WaterFlowViewController.h */,
+				18AA434F193C36A1009A7FC6 /* WaterFlowViewController.m */,
+			);
+			name = WaterFlowView;
+			path = Samples/WaterFlowView;
+			sourceTree = "<group>";
+		};
 		18AEDFA51938439A0081640E /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				1848AB27193C3C5600230296 /* TMQuiltViewCell */,
+				18AA4342193C344D009A7FC6 /* TMQuiltView */,
 			);
 			path = libs;
 			sourceTree = "<group>";
@@ -363,15 +445,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1848AB36193C3F7B00230296 /* 2.jpg in Resources */,
 				18A7621E192F0F9E005DBA11 /* Main_iPad.storyboard in Resources */,
 				18A597BB19330C990068662E /* banner3.jpg in Resources */,
+				1848AB37193C3F7B00230296 /* 3.jpg in Resources */,
 				18A597B919330C990068662E /* banner1.jpg in Resources */,
 				18A76226192F0F9E005DBA11 /* Images.xcassets in Resources */,
 				18A597BC19330C990068662E /* banner4.jpg in Resources */,
 				18A7621B192F0F9E005DBA11 /* Main_iPhone.storyboard in Resources */,
 				18A597BA19330C990068662E /* banner2.jpg in Resources */,
+				1848AB3D193C3F7B00230296 /* 9.jpg in Resources */,
+				1848AB3A193C3F7B00230296 /* 6.jpg in Resources */,
 				18A597BD19330C990068662E /* banner5.jpg in Resources */,
+				1848AB3C193C3F7B00230296 /* 8.jpg in Resources */,
+				1848AB3E193C3F7B00230296 /* 10.jpg in Resources */,
+				1848AB3B193C3F7B00230296 /* 7.jpg in Resources */,
 				18A76212192F0F9E005DBA11 /* InfoPlist.strings in Resources */,
+				1848AB39193C3F7B00230296 /* 5.jpg in Resources */,
+				1848AB35193C3F7B00230296 /* 1.jpg in Resources */,
+				1848AB38193C3F7B00230296 /* 4.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,15 +515,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18AA434B193C344D009A7FC6 /* TMQuiltViewCell.m in Sources */,
 				185A330C19371179003EF917 /* MyTableViewCell.m in Sources */,
 				18A76218192F0F9E005DBA11 /* MySamplesAppDelegate.m in Sources */,
 				185A3309193708AE003EF917 /* MyTableViewController.m in Sources */,
 				18A76221192F0F9E005DBA11 /* MySamplesMasterViewController.m in Sources */,
+				18AA434C193C344D009A7FC6 /* TMQuiltViewController.m in Sources */,
+				1848AB2A193C3C6300230296 /* TMPhotoQuiltViewCell.m in Sources */,
 				18A597C2193326C50068662E /* UIScrollView+TouchEvent.m in Sources */,
 				18BF3B421935EAAA001AB8CF /* Utilities.m in Sources */,
 				18A76214192F0F9E005DBA11 /* main.m in Sources */,
+				18AA434A193C344D009A7FC6 /* TMQuiltView.m in Sources */,
 				18A597C81933279F0068662E /* TickerView.m in Sources */,
 				18A597C5193327230068662E /* TickerViewController.m in Sources */,
+				18AA4350193C36A1009A7FC6 /* WaterFlowViewController.m in Sources */,
 				18A7624B192F15F8005DBA11 /* ImageScrollViewController.m in Sources */,
 				18A7624E192F17B4005DBA11 /* ImageScrollView.m in Sources */,
 			);

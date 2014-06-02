@@ -11,7 +11,7 @@
 #import "ImageScrollViewController.h"
 #import "TickerViewController.h"
 #import "MyTableViewController.h"
-
+#import "WaterFlowViewController.h"
 
 
 @interface MySamplesMasterViewController () {
@@ -41,6 +41,7 @@
                 [[ImageScrollViewController alloc] init],
                 [[TickerViewController alloc] init],
                 [[MyTableViewController alloc] init],
+                [[WaterFlowViewController alloc] init],
                 nil];
 }
 
