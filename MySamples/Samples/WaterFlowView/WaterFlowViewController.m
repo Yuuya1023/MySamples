@@ -67,9 +67,9 @@
         imageList_ = [[NSMutableArray alloc] init];
     }
     
-    for (int i = 1; i <= 10; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%d.jpg",i]];
-        double d = 145.0 / image.size.width;
+    for (int i = 0; i < 30; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%d.jpg",i % 10 + 1]];
+        double d = 155.5 / image.size.width;
         image = [Utilities resizeimage:image ratio:d];
         [imageList_ addObject:image];
     }
@@ -103,6 +103,7 @@
     
     // 画像の大きさを自動調整
     cell.photoView.image = [imageList_ objectAtIndex:indexPath.row];
+    cell.titleLabel.text = [NSString stringWithFormat:@"%d",indexPath.row + 1];
     
     return cell;
     
@@ -126,11 +127,12 @@
 }
 
 // Must return margins for all the possible values of TMQuiltViewMarginType. Otherwise a default value is used.
-//- (CGFloat)quiltViewMargin:(TMQuiltView *)quilView marginType:(TMQuiltViewMarginType)marginType
-//{
-//    
-//    
-//}
+- (CGFloat)quiltViewMargin:(TMQuiltView *)quilView marginType:(TMQuiltViewMarginType)marginType
+{
+    
+    return 3.0f;
+    
+}
 
 // Must return the height of the requested cell
 - (CGFloat)quiltView:(TMQuiltView *)quiltView heightForCellAtIndexPath:(NSIndexPath *)indexPath

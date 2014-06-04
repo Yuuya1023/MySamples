@@ -102,9 +102,11 @@
         ticker3_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 25)
                                          stringArray:arr2
                                                 font:[UIFont fontWithName:@"GillSans" size:20]
+                                           fontColor:kTickerFontColor
                                                speed:70.0f
                                           textMargin:30.0f
-                                               delay:2.0f];
+                                               delay:2.0f
+                                          scrollType:kTickerScrollType];
         [ticker3_ setBackgroundColor:[UIColor whiteColor]];
         
         [self.view addSubview:ticker3_];
@@ -116,9 +118,11 @@
         ticker4_ = [[TickerView alloc] initWithFrame:CGRectMake(0, 235, 160, 25)
                                          stringArray:arr2
                                                 font:[UIFont fontWithName:@"GillSans" size:10]
+                                           fontColor:[UIColor redColor]
                                                speed:20.0f
                                           textMargin:10.0f
-                                               delay:0.0f];
+                                               delay:0.0f
+                                          scrollType:kTickerScrollType];
         [ticker4_ setBackgroundColor:[UIColor whiteColor]];
         
         [self.view addSubview:ticker4_];

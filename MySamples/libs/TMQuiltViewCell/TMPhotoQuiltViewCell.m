@@ -68,6 +68,7 @@ const CGFloat kTMPhotoQuiltViewMargin = 0;
     
 - (void)layoutSubviews {
     self.photoView.frame = CGRectInset(self.bounds, kTMPhotoQuiltViewMargin, kTMPhotoQuiltViewMargin);
+//    NSLog(@"%@",NSStringFromCGSize(self.photoView.frame.size));
     self.titleLabel.frame = CGRectMake(kTMPhotoQuiltViewMargin, self.bounds.size.height - 20 - kTMPhotoQuiltViewMargin,
                                        self.bounds.size.width - 2 * kTMPhotoQuiltViewMargin, 20);
 }
