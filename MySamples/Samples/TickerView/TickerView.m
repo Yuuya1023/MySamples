@@ -44,8 +44,7 @@
     UIColor *fontColor_;
     
     /// テキスト間の幅
-    float textMargin_
-    ;
+    float textMargin_;
     
     /// アニメーションが開始されているか
     BOOL isStartedAnimation_;

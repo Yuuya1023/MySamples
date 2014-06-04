@@ -51,6 +51,8 @@
 		18AA434C193C344D009A7FC6 /* TMQuiltViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AA4349193C344D009A7FC6 /* TMQuiltViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18AA4350193C36A1009A7FC6 /* WaterFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AA434F193C36A1009A7FC6 /* WaterFlowViewController.m */; };
 		18AEDFA7193847AF0081640E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AEDFA6193847AF0081640E /* ImageIO.framework */; };
+		18B36609193F1C030035FB38 /* AutoHiddenTabWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B36608193F1C030035FB38 /* AutoHiddenTabWebViewController.m */; };
+		18B3660F193F1DB00035FB38 /* AutoHiddenTabWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B3660E193F1DB00035FB38 /* AutoHiddenTabWebView.m */; };
 		18BF3B421935EAAA001AB8CF /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BF3B411935EAAA001AB8CF /* Utilities.m */; };
 		54312BA2C1444EC4BC88E552 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 442F78A4E1544F129EFF3994 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -128,6 +130,10 @@
 		18AA434E193C36A1009A7FC6 /* WaterFlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowViewController.h; sourceTree = "<group>"; };
 		18AA434F193C36A1009A7FC6 /* WaterFlowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowViewController.m; sourceTree = "<group>"; };
 		18AEDFA6193847AF0081640E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		18B36607193F1C030035FB38 /* AutoHiddenTabWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoHiddenTabWebViewController.h; sourceTree = "<group>"; };
+		18B36608193F1C030035FB38 /* AutoHiddenTabWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoHiddenTabWebViewController.m; sourceTree = "<group>"; };
+		18B3660D193F1DB00035FB38 /* AutoHiddenTabWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoHiddenTabWebView.h; sourceTree = "<group>"; };
+		18B3660E193F1DB00035FB38 /* AutoHiddenTabWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoHiddenTabWebView.m; sourceTree = "<group>"; };
 		18BF3B401935EAAA001AB8CF /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		18BF3B411935EAAA001AB8CF /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		442F78A4E1544F129EFF3994 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -312,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				18A597BE193326C50068662E /* common */,
+				18B36606193F1BE60035FB38 /* AutoHiddenTabWebView */,
 				18AA434D193C367C009A7FC6 /* WaterFlowView */,
 				185A330619370878003EF917 /* MyTableView */,
 				18A597C1193326C50068662E /* TickerView */,
@@ -364,6 +371,18 @@
 				18AA4342193C344D009A7FC6 /* TMQuiltView */,
 			);
 			path = libs;
+			sourceTree = "<group>";
+		};
+		18B36606193F1BE60035FB38 /* AutoHiddenTabWebView */ = {
+			isa = PBXGroup;
+			children = (
+				18B36607193F1C030035FB38 /* AutoHiddenTabWebViewController.h */,
+				18B36608193F1C030035FB38 /* AutoHiddenTabWebViewController.m */,
+				18B3660D193F1DB00035FB38 /* AutoHiddenTabWebView.h */,
+				18B3660E193F1DB00035FB38 /* AutoHiddenTabWebView.m */,
+			);
+			name = AutoHiddenTabWebView;
+			path = Samples/AutoHiddenTabWebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,9 +534,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B3660F193F1DB00035FB38 /* AutoHiddenTabWebView.m in Sources */,
 				18AA434B193C344D009A7FC6 /* TMQuiltViewCell.m in Sources */,
 				185A330C19371179003EF917 /* MyTableViewCell.m in Sources */,
 				18A76218192F0F9E005DBA11 /* MySamplesAppDelegate.m in Sources */,
+				18B36609193F1C030035FB38 /* AutoHiddenTabWebViewController.m in Sources */,
 				185A3309193708AE003EF917 /* MyTableViewController.m in Sources */,
 				18A76221192F0F9E005DBA11 /* MySamplesMasterViewController.m in Sources */,
 				18AA434C193C344D009A7FC6 /* TMQuiltViewController.m in Sources */,

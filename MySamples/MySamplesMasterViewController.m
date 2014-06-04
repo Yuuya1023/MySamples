@@ -12,6 +12,7 @@
 #import "TickerViewController.h"
 #import "MyTableViewController.h"
 #import "WaterFlowViewController.h"
+#import "AutoHiddenTabWebViewController.h"
 
 
 @interface MySamplesMasterViewController () {
@@ -42,6 +43,7 @@
                 [[TickerViewController alloc] init],
                 [[MyTableViewController alloc] init],
                 [[WaterFlowViewController alloc] init],
+                [[AutoHiddenTabWebViewController alloc] init],
                 nil];
 }
 
