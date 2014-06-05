@@ -146,8 +146,6 @@
 {
 //    NSLog(@"didFailLoadWithError");
     loadingView_.alpha = 0.0f;
-    
-    
 }
 
 
@@ -156,7 +154,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    
+//    NSLog(@"start %f",scrollStartOffsetY_);
 //    NSLog(@"scrollViewDidScroll %f ,%f",scrollView.contentSize.height - self.frame.size.height,scrollView.contentOffset.y);
     
     float maxContentOffsetY = scrollView.contentSize.height - self.frame.size.height;
@@ -168,11 +166,7 @@
         [self showToolbar:YES];
     }
     else{
-        if (currentOffsetY == 0) {
-            // 最上部なのでタブ表示
-            [self showToolbar:NO];
-        }
-        else if (scrollStartOffsetY_ > currentOffsetY){
+        if (scrollStartOffsetY_ > currentOffsetY){
             // 上部へスクロールしているので表示
             [self showToolbar:NO];
         }
@@ -188,7 +182,7 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
 //    NSLog(@"scrollViewWillBeginDragging");
-    scrollStartOffsetY_ = scrollView.contentOffset.y;
+    scrollStartOffsetY_ = scrollView.contentOffset.y + 1;
 }
 
 
@@ -197,7 +191,7 @@
 
 - (void)showToolbar:(BOOL)isBottom
 {
-    if (slideView_.frame.origin.y == self.frame.size.height - TOOLBAR_H || webview_.loading) return;
+    if (slideView_.frame.origin.y == self.frame.size.height - TOOLBAR_H) return;
     
 //    NSLog(@"+++++++");
     [UIView animateWithDuration:SLIDE_ANIMATION_DURATION
@@ -213,7 +207,7 @@
 
 - (void)hideToolbar
 {
-    if (slideView_.frame.origin.y == self.frame.size.height || webview_.loading) return;
+    if (slideView_.frame.origin.y == self.frame.size.height) return;
     
 //    NSLog(@"-------");
     [UIView animateWithDuration:SLIDE_ANIMATION_DURATION
