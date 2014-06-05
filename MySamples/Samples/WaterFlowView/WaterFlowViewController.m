@@ -41,7 +41,7 @@
     // Do any additional setup after loading the view.
     
     // quiltview
-    quiltView_ = [[TMQuiltView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    quiltView_ = [[TMQuiltView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     quiltView_.dataSource = self;
     quiltView_.delegate = self;
     

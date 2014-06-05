@@ -126,16 +126,16 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    NSLog(@"webViewDidStartLoad");
+//    NSLog(@"webViewDidStartLoad");
     loadingView_.alpha = 0.6f;
     
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    NSLog(@"webViewDidFinishLoad");
+//    NSLog(@"webViewDidFinishLoad");
     loadingView_.alpha = 0.0f;
-    [self showToolbar:NO];
+//    [self showToolbar:NO];
     
     backButton_.enabled = webview_.canGoBack;
     nextButton_.enabled = webview_.canGoForward;
@@ -144,7 +144,7 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    NSLog(@"didFailLoadWithError");
+//    NSLog(@"didFailLoadWithError");
     loadingView_.alpha = 0.0f;
     
     
