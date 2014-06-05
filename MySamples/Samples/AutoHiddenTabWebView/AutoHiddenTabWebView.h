@@ -10,6 +10,8 @@
 
 @interface AutoHiddenTabWebView : UIView < UIScrollViewDelegate, UIWebViewDelegate >
 
+- (id)initWithFrame:(CGRect)frame;
+
 - (void)loadRequest:(NSURLRequest *)request;
 
 @end
