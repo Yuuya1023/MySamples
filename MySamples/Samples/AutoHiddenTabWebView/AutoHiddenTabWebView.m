@@ -128,7 +128,6 @@
 {
 //    NSLog(@"webViewDidStartLoad");
     loadingView_.alpha = 0.6f;
-    
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
@@ -154,11 +153,12 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-//    NSLog(@"start %f",scrollStartOffsetY_);
-//    NSLog(@"scrollViewDidScroll %f ,%f",scrollView.contentSize.height - self.frame.size.height,scrollView.contentOffset.y);
     
     float maxContentOffsetY = scrollView.contentSize.height - self.frame.size.height;
     float currentOffsetY = scrollView.contentOffset.y;
+    
+//    NSLog(@"start %f",scrollStartOffsetY_);
+//    NSLog(@"%f ,%f",maxContentOffsetY, currentOffsetY);
     
     // 最下部だった場合強制的にタブを出すのでwebviewを小さくする
     if (maxContentOffsetY - OFFSET_MARGIN <= currentOffsetY) {
@@ -166,12 +166,16 @@
         [self showToolbar:YES];
     }
     else{
-        if (scrollStartOffsetY_ > currentOffsetY){
+        if (scrollStartOffsetY_ >= currentOffsetY){
             // 上部へスクロールしているので表示
+//            NSLog(@"+++++++++");
+            if (0 < currentOffsetY) scrollStartOffsetY_ = scrollView.contentOffset.y + 5.0f;
             [self showToolbar:NO];
         }
         else{
             // たぶん下にスクロールしている
+//            NSLog(@"---------");
+            if (0 < currentOffsetY) scrollStartOffsetY_ = scrollView.contentOffset.y - 5.0f;
             [self hideToolbar];
         }
     }
@@ -182,7 +186,7 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
 //    NSLog(@"scrollViewWillBeginDragging");
-    scrollStartOffsetY_ = scrollView.contentOffset.y + 1;
+    scrollStartOffsetY_ = scrollView.contentOffset.y;
 }
 
 
