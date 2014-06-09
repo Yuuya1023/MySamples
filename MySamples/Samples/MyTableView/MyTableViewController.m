@@ -37,11 +37,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    float margin = NAVBAR_H + STATUSBAR_H;
-    tableView_ = [[UITableView alloc] initWithFrame:CGRectMake(0, margin, self.view.frame.size.width, self.view.frame.size.height - margin)];
+    tableView_ = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     tableView_.dataSource = self;
     tableView_.delegate = self;
-//    [self.view addSubview:tableView_];
+    [self.view addSubview:tableView_];
     
     
     // url
@@ -60,25 +59,6 @@
  
     images_ = [[NSMutableDictionary alloc] init];
     
-    // SDWebImageで画像をダウンロードしておく
-    __block int temp = 0;
-    for (int i = 0; i < [urls_ count]; i++) {
-        UIImageView *imageV = [[UIImageView alloc] init];
-        [self.view addSubview:imageV];
-        [imageV setImageWithURL:[urls_ objectAtIndex:i]
-                      completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                          if (!error) {
-                              NSURL *url =[urls_ objectAtIndex:i];
-                              [images_ setObject:image forKey:[NSString stringWithFormat:@"%@",[url absoluteString]]];
-                              
-                              if (temp == [urls_ count] - 1) {
-                                  [self.view addSubview:tableView_];
-                              }
-                              
-                              temp++;
-                          }
-                      }];
-    }
 }
 
 
@@ -101,27 +81,31 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [urls_ count];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [urls_ count];
+    return 1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSURL *url = [urls_ objectAtIndex:indexPath.row];
+    NSURL *url = [urls_ objectAtIndex:indexPath.section];
     NSString *CellIdentifier = [url absoluteString];
     MyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[MyTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:CellIdentifier
-                                                  url:[urls_ objectAtIndex:indexPath.row]
+                                                  url:url
                                                  func:^(UIImage *image, UITableViewCell *cell) {
+//                                                     NSLog(@"realod");
+                                                     [images_ setObject:image forKey:[NSString stringWithFormat:@"%@",[url absoluteString]]];
+                                                     [tableView_ reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section]
+                                                               withRowAnimation:UITableViewRowAnimationNone];
         }];
     }
 
@@ -135,12 +119,11 @@
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSURL *url = [urls_ objectAtIndex:indexPath.row];
-    if (!url) return 0;
-    
+    NSURL *url = [urls_ objectAtIndex:indexPath.section];
     UIImage *image = [images_ objectForKey:[url absoluteString]];
-    double d = self.view.frame.size.width / image.size.width;
+    if (!image) return 0;
     
+    double d = self.view.frame.size.width / image.size.width;
     return image.size.height * d;
 }
 
