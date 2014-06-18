@@ -111,7 +111,7 @@
             [scrollView_ addSubview:imageView];
         }
         
-        [self createPageControll];
+        [self createPageControl];
         
         if (isAutoScrollEnable_ && !pageCount_ != 1) {
             [self initTimer];
@@ -121,7 +121,7 @@
     return self;
 }
 
-- (id)initWithFrame:(CGRect)frame imageFiles:(NSArray *)imageFiles enablePageControll:(BOOL)enablePageControll
+- (id)initWithFrame:(CGRect)frame imageFiles:(NSArray *)imageFiles enablePageControl:(BOOL)enablePageControl
 {
     
     self = [self initWithFrame:frame]; //[super initWithFrame:frame];
@@ -132,7 +132,7 @@
         scrollView_.contentSize = CGSizeMake(frame.size.width * pageCount_, frame.size.height);
         
         float pageControllHeight = 0.0f;
-        if (enablePageControll) {
+        if (enablePageControl) {
             pageControllHeight = PAGE_CONTROL_HEIGHT;
         }
         
@@ -146,8 +146,8 @@
             [scrollView_ addSubview:imageView];
         }
         
-        if (enablePageControll) {
-            [self createPageControll];
+        if (enablePageControl) {
+            [self createPageControl];
         }
         
         if (isAutoScrollEnable_ && !pageCount_ != 1) {
@@ -176,7 +176,7 @@
             [scrollView_ addSubview:view];
         }
         
-        [self createPageControll];
+        [self createPageControl];
         
         if (isAutoScrollEnable_ && !pageCount_ != 1) {
             [self initTimer];
@@ -206,7 +206,7 @@
 
 #pragma mark - 
 
-- (void)createPageControll
+- (void)createPageControl
 {
     
     if (!pageControl_) {
