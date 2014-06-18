@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ImageScrollView.h"
 
-@interface ImageScrollViewController : UIViewController
+@interface ImageScrollViewController : UIViewController < ImageScrollViewDelegate >
 
 @end

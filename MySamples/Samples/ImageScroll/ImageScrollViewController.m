@@ -40,6 +40,7 @@
         ImageScrollView *imageScroll = [[ImageScrollView alloc] initWithFrame:CGRectMake(0, 100, 320, 120)
                                                                    imageFiles:arr
                                                             enablePageControl:NO];
+        imageScroll.delegate = self;
         [self.view addSubview:imageScroll];
     }
     
@@ -74,6 +75,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - ImageScrollView Delegate
+
+- (void)imageScrollViewDidChangePage:(ImageScrollView *)imageScrollView newPageIndex:(int)newPageIndex
+{
+    NSLog(@"imageScrollViewDidChangePage %d",newPageIndex);
+}
+
+- (void)imageScrollViewDidTouchPage:(ImageScrollView *)imageScrollView pageIndex:(int)pageIndex
+{
+    NSLog(@"imageScrollViewDidTouchPage %d",pageIndex);
 }
 
 

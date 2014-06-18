@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ImageScrollViewDelegate;
+
 @interface ImageScrollView : UIView<UIScrollViewDelegate>
 
 
@@ -15,8 +17,6 @@
 - (id)initWithFrame:(CGRect)frame imageFiles:(NSArray *)imageFiles enablePageControl:(BOOL)enablePageControl;
 
 - (id)initWithFrame:(CGRect)frame views:(NSArray *)views;
-
-
 
 
 
@@ -30,9 +30,24 @@
 /// ページのタッチ有効/無効
 @property(nonatomic, setter = setPageTouchEnable:) BOOL isPageTouchEnable;
 
-
-
-
+/// Delegate
+@property(nonatomic, assign) id<ImageScrollViewDelegate> delegate;
 
 
 @end
+
+
+
+@protocol ImageScrollViewDelegate <NSObject>
+@optional
+
+- (void)imageScrollViewDidChangePage:(ImageScrollView *)imageScrollView newPageIndex:(int)newPageIndex;
+
+- (void)imageScrollViewDidTouchPage:(ImageScrollView *)imageScrollView pageIndex:(int)pageIndex;
+
+
+@end
+
+
+
+

@@ -251,7 +251,7 @@
             moveToX = 0.0f;
             currentPage_ = 1;
         }
-        [pageControl_ setCurrentPage:currentPage_ - 1];
+        [self changedPage];
         
 //        NSLog(@"currentPage -> %d",currentPage_);
         
@@ -262,6 +262,20 @@
                          animations:^(void) {
             scrollView_.contentOffset = CGPointMake(moveToX, 0);
         }];
+    }
+}
+
+
+
+#pragma mark - 
+
+- (void)changedPage
+{
+//    NSLog(@"changedPage -> %d",currentPage_);
+    [pageControl_ setCurrentPage:currentPage_ - 1];
+    
+    if (self.delegate && [self.delegate respondsToSelector:NSSelectorFromString(@"imageScrollViewDidChangePage:newPageIndex:")]) {
+        [self.delegate imageScrollViewDidChangePage:self newPageIndex:currentPage_ - 1];
     }
 }
 
@@ -298,8 +312,7 @@
 {
 //    NSLog(@"scrollViewDidEndDecelerating");
     currentPage_ = (NSUInteger)(scrollView.contentOffset.x / scrollView.bounds.size.width) + 1;
-    [pageControl_ setCurrentPage:currentPage_ - 1];
-//    NSLog(@"currentPage -> %d",currentPage_);
+    [self changedPage];
 }
 
 
@@ -350,8 +363,9 @@
     
     // タッチが動いていなければタップ時の処理を行う
     if (!isTouchesMoved_) {
-        NSLog(@"do something.");
-        
+        if (self.delegate && [self.delegate respondsToSelector:NSSelectorFromString(@"imageScrollViewDidTouchPage:pageIndex:")]) {
+            [self.delegate imageScrollViewDidTouchPage:self pageIndex:currentPage_ - 1];
+        }
     }
     
     
