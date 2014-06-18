@@ -38,7 +38,8 @@
                         nil];
         
         ImageScrollView *imageScroll = [[ImageScrollView alloc] initWithFrame:CGRectMake(0, 100, 320, 120)
-                                                                   imageFiles:arr];
+                                                                   imageFiles:arr
+                                                           enablePageControll:YES];
         [self.view addSubview:imageScroll];
     }
     

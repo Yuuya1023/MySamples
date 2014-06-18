@@ -12,6 +12,7 @@
 
 
 - (id)initWithFrame:(CGRect)frame imageFiles:(NSArray *)imageFiles;
+- (id)initWithFrame:(CGRect)frame imageFiles:(NSArray *)imageFiles enablePageControll:(BOOL)enablePageControll;
 
 - (id)initWithFrame:(CGRect)frame views:(NSArray *)views;
 

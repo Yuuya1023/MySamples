@@ -121,6 +121,43 @@
     return self;
 }
 
+- (id)initWithFrame:(CGRect)frame imageFiles:(NSArray *)imageFiles enablePageControll:(BOOL)enablePageControll
+{
+    
+    self = [self initWithFrame:frame]; //[super initWithFrame:frame];
+    if (self) {
+        // ページ生成
+        pageCount_ = [imageFiles count];
+        pageSize_ = frame.size.width;
+        scrollView_.contentSize = CGSizeMake(frame.size.width * pageCount_, frame.size.height);
+        
+        float pageControllHeight = 0.0f;
+        if (enablePageControll) {
+            pageControllHeight = PAGE_CONTROL_HEIGHT;
+        }
+        
+        for (int i = 0; i < pageCount_; i++) {
+            UIImage *image = [UIImage imageNamed:[imageFiles objectAtIndex:i]];
+            
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+            imageView.frame = CGRectMake(i * pageSize_, 0, pageSize_, frame.size.height - pageControllHeight);
+            
+            [pageContainerArray_ addObject:imageView];
+            [scrollView_ addSubview:imageView];
+        }
+        
+        if (enablePageControll) {
+            [self createPageControll];
+        }
+        
+        if (isAutoScrollEnable_ && !pageCount_ != 1) {
+            [self initTimer];
+        }
+        
+    }
+    return self;
+}
+
 
 - (id)initWithFrame:(CGRect)frame views:(NSArray *)views
 {
