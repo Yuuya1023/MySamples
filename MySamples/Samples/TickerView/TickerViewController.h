@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TickerViewController : UIViewController
+#import "TickerView.h"
+
+
+@interface TickerViewController : UIViewController <TickerViewDelegate>
 
 @end

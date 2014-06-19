@@ -7,7 +7,6 @@
 //
 
 #import "TickerViewController.h"
-#import "TickerView.h"
 
 #import "Utilities.h"
 
@@ -106,7 +105,8 @@
                                                speed:70.0f
                                           textMargin:30.0f
                                                delay:2.0f
-                                          scrollType:kTickerScrollType];
+                                          scrollType:TickerScrollTypeSingle];
+        ticker3_.delegate = self;
         [ticker3_ setBackgroundColor:[UIColor whiteColor]];
         
         [self.view addSubview:ticker3_];
@@ -122,7 +122,8 @@
                                                speed:20.0f
                                           textMargin:10.0f
                                                delay:0.0f
-                                          scrollType:kTickerScrollType];
+                                          scrollType:TickerScrollTypeSingle];
+        ticker4_.delegate = self;
         [ticker4_ setBackgroundColor:[UIColor whiteColor]];
         
         [self.view addSubview:ticker4_];
@@ -155,6 +156,14 @@
     [ticker2_ resumeAnimation];
     [ticker3_ resumeAnimation];
     [ticker4_ resumeAnimation];
+}
+
+
+#pragma mark - TickerView Delegate
+
+- (void)tickerViewDidTouched:(TickerView *)tickerView pageIndex:(int)pageIndex
+{
+    NSLog(@"tickerViewDidTouched %d",pageIndex);
 }
 
 

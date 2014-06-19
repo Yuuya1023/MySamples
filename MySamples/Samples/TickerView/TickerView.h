@@ -19,9 +19,12 @@
 enum TickerScrollType{
     TickerScrollTypeRange = 0,
     TickerScrollTypeSingle
-} ;
+};
+
+@protocol TickerViewDelegate;
 
 @interface TickerView : UIView
+
 
 /// デフォルト値で初期化
 - (id)initWithFrame:(CGRect)frame stringArray:(NSArray *)array;
@@ -38,5 +41,22 @@ enum TickerScrollType{
 
 
 
+/// Delegate
+@property(nonatomic, assign) id<TickerViewDelegate> delegate;
+
+
 
 @end
+
+
+
+@protocol TickerViewDelegate <NSObject>
+@optional
+
+- (void)tickerViewDidTouched:(TickerView *)tickerView pageIndex:(int)pageIndex;
+
+
+
+@end
+
+

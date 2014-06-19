@@ -402,7 +402,10 @@
 - (void)tickerTouched:(UIButton *)b
 {
     
-    NSLog(@"touched index->%d, text->%@",displayIndex_, [stringList_ objectAtIndex:displayIndex_]);
+//    NSLog(@"touched index->%d, text->%@",displayIndex_, [stringList_ objectAtIndex:displayIndex_]);
+    if (self.delegate && [self.delegate respondsToSelector:NSSelectorFromString(@"tickerViewDidTouched:pageIndex:")]) {
+        [self.delegate tickerViewDidTouched:self pageIndex:displayIndex_];
+    }
     
 }
 
