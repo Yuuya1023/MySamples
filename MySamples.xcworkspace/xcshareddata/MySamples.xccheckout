@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>919D990F-FDD5-40D5-8A0D-BE3F2036E806</string>
+	<string>24CBD568-7711-417F-AB0D-6F68470F09D2</string>
 	<key>IDESourceControlProjectName</key>
 	<string>MySamples</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>1B72BB1E-BADE-487E-808F-F51D75AE9BC3</key>
+		<key>2CDCD267-A49B-427B-80EA-A6EDE944E75B</key>
 		<string>https://github.com/Yuuya1023/MySamples.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>MySamples.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>1B72BB1E-BADE-487E-808F-F51D75AE9BC3</key>
+		<key>2CDCD267-A49B-427B-80EA-A6EDE944E75B</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1B72BB1E-BADE-487E-808F-F51D75AE9BC3</string>
+	<string>2CDCD267-A49B-427B-80EA-A6EDE944E75B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1B72BB1E-BADE-487E-808F-F51D75AE9BC3</string>
+			<string>2CDCD267-A49B-427B-80EA-A6EDE944E75B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MySamples</string>
 		</dict>

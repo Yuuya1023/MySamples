@@ -63,6 +63,8 @@
     /// ボタン
     UIButton *button_;
     
+    /// スクロールタイマー
+    NSTimer *scrollTimer_;
     
 }
 
@@ -98,12 +100,6 @@
         
         
         [self createViewWithFrame:frame stringArray:array];
-        
-        // ホームに一旦戻ってしまうとanimationWithDurationが終わるので再開させる
-        [NOTIF_CENTER addObserver:self
-                         selector:NSSelectorFromString(@"restartAnimation")
-                             name:NOTIF_NAME_APPLICATION_WILL_ENTER_FOREGROUND
-                           object:nil];
         
         // 一個づつスクロールする場合はボタンを用意する
         if (scrollType_ == TickerScrollTypeSingle) {
@@ -142,6 +138,7 @@
 //    NSLog(@"willMoveToSuperview");
     
     [self startAnimation];
+    [self initTimer];
     
 }
 
@@ -159,6 +156,44 @@
     [super removeFromSuperview];
 //    NSLog(@"removeFromSuperview");
     
+    
+}
+
+
+#pragma mark - Timer
+
+- (void)initTimer
+{
+    if (scrollType_ == TickerScrollTypeRange) {
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(animationDelay_ * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [self setTimer];
+        });
+    }
+    else{
+        [self setTimer];
+    }
+}
+
+- (void)setTimer
+{
+    scrollTimer_ = [NSTimer scheduledTimerWithTimeInterval:0.01f
+                                                    target:self
+                                                  selector:NSSelectorFromString(@"scrollLabel:")
+                                                  userInfo:nil
+                                                   repeats:YES];
+}
+
+- (void)scrollLabel:(NSTimer *)timer
+{
+    NSLog(@"scrollLabel");
+    if (tempView_) {
+//        NSLog(@"%@",NSStringFromCGPoint(tempView_.contentOffset));
+        tempView_.contentOffset = CGPointMake(tempView_.contentOffset.x + 0.3f, tempView_.contentOffset.y);
+        if (tempView_.contentOffset.x > tempView_.contentSize.width) {
+            [self nextView];
+        }
+    }
     
 }
 
@@ -227,53 +262,56 @@
 }
 
 
-- (void)startAutoScroll:(UIScrollView *)targetView
-{
-    
-//    NSLog(@"startAutoScroll");
-    
-    float moveToX = 0.0f;
-    float moveToY = 0.0f;
-    float delay = animationDelay_;
-    
-    switch (scrollType_) {
-        case TickerScrollTypeRange:
-        {
-            moveToX = size_;
-        }
-            break;
-            
-        case TickerScrollTypeSingle:
-        {
-            moveToX = targetView.contentSize.width;
-            delay = 0.0f;   // 遅延を発生させない
-        }
-            break;
-            
-        default:
-            break;
-    }
-    
-    // 自動スクロール
-    double d = moveToX / animationSpeed_;
-    [UIView animateWithDuration:d
-                          delay:delay
-                        options:UIViewAnimationOptionCurveLinear
-                     animations:^(void) {
-                         targetView.contentOffset = CGPointMake(moveToX, moveToY);
-                     } completion:^(BOOL finished) {
-                         if (finished) {
-                             [targetView removeFromSuperview];
-                             [self nextView];
-                         }
-                     }];
-    
-}
+//- (void)startAutoScroll:(UIScrollView *)targetView
+//{
+//    
+////    NSLog(@"startAutoScroll");
+//    
+//    float moveToX = 0.0f;
+//    float moveToY = 0.0f;
+//    float delay = animationDelay_;
+//    
+//    switch (scrollType_) {
+//        case TickerScrollTypeRange:
+//        {
+//            moveToX = size_;
+//        }
+//            break;
+//            
+//        case TickerScrollTypeSingle:
+//        {
+//            moveToX = targetView.contentSize.width;
+//            delay = 0.0f;   // 遅延を発生させない
+//        }
+//            break;
+//            
+//        default:
+//            break;
+//    }
+//    
+//    // 自動スクロール
+//    double d = moveToX / animationSpeed_;
+//    [UIView animateWithDuration:d
+//                          delay:delay
+//                        options:UIViewAnimationOptionCurveLinear
+//                     animations:^(void) {
+//                         targetView.contentOffset = CGPointMake(moveToX, moveToY);
+//                     } completion:^(BOOL finished) {
+//                         if (finished) {
+//                             [targetView removeFromSuperview];
+//                             [self nextView];
+//                         }
+//                     }];
+//    
+//}
 
 
 - (void)nextView
 {
 //    NSLog(@"nextView");
+    
+    [scrollTimer_ invalidate];
+    [self initTimer];
     
     switch (scrollType_) {
         case TickerScrollTypeRange:
@@ -291,7 +329,7 @@
                              } completion:^(BOOL finished) {
                                  if (finished) {
                                      // 新規viewを自動スクロール
-                                     [self startAutoScroll:tempView_];
+//                                     [self startAutoScroll:tempView_];
                                  }
                              }];
         }
@@ -307,7 +345,7 @@
             
             [self addSubview:tempView_];
             [self bringSubviewToFront:button_];
-            [self startAutoScroll:tempView_];
+//            [self startAutoScroll:tempView_];
         }
             break;
             
@@ -348,7 +386,7 @@
         }
         
         // スクロール開始
-        [self startAutoScroll:tempView_];
+//        [self startAutoScroll:tempView_];
     }
     
 }
@@ -372,9 +410,11 @@
     
     if (!isPaused_) {
         isPaused_ = YES;
-        CFTimeInterval pausedTime = [tempView_.layer convertTime:CACurrentMediaTime() fromLayer:nil];
-        tempView_.layer.speed = 0.0f;
-        tempView_.layer.timeOffset = pausedTime;
+//        CFTimeInterval pausedTime = [tempView_.layer convertTime:CACurrentMediaTime() fromLayer:nil];
+//        tempView_.layer.speed = 0.0f;
+//        tempView_.layer.timeOffset = pausedTime;
+        
+        [scrollTimer_ invalidate];
     }
     
 }
@@ -385,12 +425,14 @@
     
     if (isPaused_) {
         isPaused_ = NO;
-        CFTimeInterval pausedTime = [tempView_.layer timeOffset];
-        tempView_.layer.speed = 1.0;
-        tempView_.layer.timeOffset = 0.0;
-        tempView_.layer.beginTime = 0.0;
-        CFTimeInterval timeSincePause = [tempView_.layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
-        tempView_.layer.beginTime = timeSincePause;
+//        CFTimeInterval pausedTime = [tempView_.layer timeOffset];
+//        tempView_.layer.speed = 1.0;
+//        tempView_.layer.timeOffset = 0.0;
+//        tempView_.layer.beginTime = 0.0;
+//        CFTimeInterval timeSincePause = [tempView_.layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
+//        tempView_.layer.beginTime = timeSincePause;
+      
+        [self setTimer];
     }
     
 }
