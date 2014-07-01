@@ -101,6 +101,13 @@
         
         [self createViewWithFrame:frame stringArray:array];
         
+        // 再開通知
+        [NOTIF_CENTER addObserver:self
+                         selector:NSSelectorFromString(@"restartAnimation")
+                             name:TICKER_SHOULD_RESTART_ANIMATION_NOTIF_NAME
+                           object:nil];
+        
+        
         // 一個づつスクロールする場合はボタンを用意する
         if (scrollType_ == TickerScrollTypeSingle) {
             if (!button_) {
@@ -312,6 +319,10 @@
     
     [scrollTimer_ invalidate];
     [self initTimer];
+    
+    if (tempView_) {
+        [tempView_ removeFromSuperview];
+    }
     
     switch (scrollType_) {
         case TickerScrollTypeRange:

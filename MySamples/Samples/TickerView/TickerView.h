@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define TICKER_SHOULD_RESTART_ANIMATION_NOTIF_NAME @"TICKER_SHOULD_RESTART_ANIMATION"
+
 #define kTickerFont [UIFont fontWithName:@"Helvetica-Bold"size:12]
 #define kTickerFontColor [UIColor blackColor]
 #define kTickerAnimationSpeed 40.0f
